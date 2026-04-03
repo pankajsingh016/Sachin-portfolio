@@ -1,0 +1,596 @@
+{
+  "meta": {
+    "purpose": "Single source for site copy and design tokens. theme-loader.js fetches this file on load.",
+    "version": "2.0.0",
+    "localServerNote": "Serve this folder over HTTP (e.g. python3 -m http.server) so theme.json loads; opening index.html as file:// may block fetch."
+  },
+  "site": {
+    "title": "Sachin Prajapati · D2C Growth Strategist & Full-Funnel Lead",
+    "lang": "en"
+  },
+  "typography": {
+    "googleFontsHref": "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Poppins:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap"
+  },
+  "colors": {
+    "bg": "#070708",
+    "surface": "#0e0e11",
+    "border": "#24242c",
+    "borderSoft": "#1a1a1f",
+    "borderGold": "rgba(226, 188, 90, 0.3)",
+    "borderGoldShine": "rgba(255, 250, 224, 0.18)",
+    "borderGoldGlow": "0 0 28px rgba(226, 188, 90, 0.07)",
+    "accent": "#e2bc5a",
+    "accentSoft": "rgba(226, 188, 90, 0.14)",
+    "accent2": "#ff7a4d",
+    "text": "#f2f2eb",
+    "muted": "#94949a",
+    "card": "#111114",
+    "cssVariableNames": {
+      "bg": "--bg",
+      "surface": "--surface",
+      "border": "--border",
+      "borderSoft": "--border-soft",
+      "borderGold": "--border-gold",
+      "borderGoldShine": "--border-gold-shine",
+      "borderGoldGlow": "--border-gold-glow",
+      "accent": "--accent",
+      "accentSoft": "--accent-soft",
+      "accent2": "--accent2",
+      "text": "--text",
+      "muted": "--muted",
+      "card": "--card"
+    }
+  },
+  "layout": {
+    "layoutMax": "1180px",
+    "layoutMaxWide": "min(1320px, calc(100vw - 2 * var(--layout-pad-x)))",
+    "layoutPadX": "clamp(2.25rem, 7vw, 5.75rem)",
+    "sectionY": "clamp(3.5rem, 6vw, 5rem)",
+    "blockGap": "1.5rem",
+    "heroColGap": "clamp(2rem, 5vw, 3.25rem)"
+  },
+  "radiiAndMotion": {
+    "radiusSm": "10px",
+    "radiusMd": "16px",
+    "easeOut": "cubic-bezier(0.22, 1, 0.36, 1)"
+  },
+  "buttons": {
+    "height": "2.75rem",
+    "padX": "1.375rem",
+    "fontSize": "0.8125rem",
+    "fontWeight": 700,
+    "tracking": "0.02em"
+  },
+  "brand": {
+    "navLogo": "Sachin Prajapati",
+    "heroH1": {
+      "line1": {
+        "before": "Most brands sell ",
+        "emphasis": "solutions."
+      },
+      "line2": {
+        "before": "Aspiration brands sell ",
+        "emphasis": "outcomes."
+      }
+    },
+    "roleShort": "Growth Head · Full-funnel performance, analytics & multi-channel scale",
+    "heroDesc": "I design and run full-funnel growth systems—Meta, Google, SEO, CRO, analytics, and retention—so CAC drops, LTV rises, and revenue compounds. Predictable pipelines, not one-off campaign spikes.",
+    "heroPhilosophy": "Marketing is not \"turning on ads.\" It is building systems that deliver profitable, repeatable growth—month after month, channel after channel.",
+    "photoBadge": {
+      "name": "Sachin Prajapati",
+      "role": "Growth Head · My Pixel Panda · QuickFlo",
+      "pills": [
+        "MBA — Marketing & Finance",
+        "IET Lucknow",
+        "500+ Connections"
+      ]
+    }
+  },
+  "heroEyebrow": {
+    "lead": "D2C growth",
+    "locationChip": "Jaipur, India",
+    "stat": {
+      "value": "1,450+",
+      "note": "LinkedIn"
+    }
+  },
+  "assets": {
+    "heroPhoto": {
+      "path": "file (1).jpg",
+      "alt": "Sachin Prajapati"
+    }
+  },
+  "navigation": {
+    "items": [
+      {
+        "label": "Tools",
+        "href": "#tools"
+      },
+      {
+        "label": "Case Studies",
+        "href": "#cases"
+      },
+      {
+        "label": "Frameworks",
+        "href": "#frameworks"
+      },
+      {
+        "label": "Process",
+        "href": "#process"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
+    ]
+  },
+  "heroCtas": {
+    "primary": {
+      "label": "View case studies",
+      "href": "#cases"
+    },
+    "secondary": {
+      "label": "LinkedIn profile",
+      "href": "https://www.linkedin.com/in/sachin-prajapati-03234319a/"
+    }
+  },
+  "stats": {
+    "sectionAriaLabel": "Career highlights",
+    "items": [
+      {
+        "value": "5+",
+        "label": "Years experience"
+      },
+      {
+        "value": "30+",
+        "label": "Brands scaled"
+      },
+      {
+        "value": "₹1.5Cr",
+        "label": "Peak monthly revenue"
+      },
+      {
+        "value": "7",
+        "label": "Person team led"
+      }
+    ]
+  },
+  "stackSection": {
+    "label": "Stack",
+    "kicker": {
+      "before": "Platforms and tools I use ",
+      "em": "daily",
+      "after": " to ship, measure, and scale."
+    }
+  },
+  "tools": {
+    "groups": [
+      {
+        "label": "Paid Advertising",
+        "items": [
+          {
+            "name": "Meta Ads",
+            "sub": "Advanced · CAPI · Signal-based"
+          },
+          {
+            "name": "Google Ads",
+            "sub": "Search · Shopping · PMax"
+          },
+          {
+            "name": "Performance Max",
+            "sub": "Cross-channel automation"
+          }
+        ]
+      },
+      {
+        "label": "Analytics & Tracking",
+        "items": [
+          {
+            "name": "GA4",
+            "sub": "Advanced Analytics"
+          },
+          {
+            "name": "Google Tag Manager",
+            "sub": "GTM · Server-Side · Events"
+          },
+          {
+            "name": "Microsoft Clarity",
+            "sub": "Heatmaps · Session Replay"
+          }
+        ]
+      },
+      {
+        "label": "SEO & CRO",
+        "items": [
+          {
+            "name": "Technical SEO",
+            "sub": "On-page · Content · Rankings"
+          },
+          {
+            "name": "CRO",
+            "sub": "Landing Page · A/B Testing"
+          },
+          {
+            "name": "Shopify",
+            "sub": "D2C Store Optimisation"
+          }
+        ]
+      },
+      {
+        "label": "Retention & Automation",
+        "items": [
+          {
+            "name": "Email Marketing",
+            "sub": "Flows · Sequences · LTV"
+          },
+          {
+            "name": "WhatsApp Marketing",
+            "sub": "Reorder triggers · Sequences"
+          },
+          {
+            "name": "Revenue Modelling",
+            "sub": "CAC · LTV · Cohort · Payback"
+          }
+        ]
+      }
+    ]
+  },
+  "featuredCase": {
+    "sectionLabel": "Flagship case",
+    "kicker": {
+      "before": "From plateau to ",
+      "em": "₹1.5 Cr / month",
+      "after": "—same brand, sharper system."
+    },
+    "badge": "Featured result",
+    "brandTag": "Apparel D2C — My Pixel Panda Portfolio",
+    "caseCat": "Full-Funnel · P1P2P3–H1H2H3 Framework",
+    "title": "₹40L → ₹1.5 Crore/month at 5.3 ROAS — same brand, same category",
+    "description": "A clothing brand stuck near ₹40L/month at 4.3× ROAS—strong product, weak system. We rebuilt tracking, creative rhythm, and campaign architecture with the P1P2P3–H1H2H3 framework. Revenue climbed 3.75× with healthier margins.",
+    "blocks": [
+      {
+        "label": "The Problem",
+        "body": "ROAS flat at 4.3×. No disciplined creative testing. Tracking was unreliable—CAPI missing, attribution skewed. No real warm funnel or retention motion. Pushing budget only squeezed margins."
+      },
+      {
+        "label": "What We Did",
+        "body": "Deployed P1P2P3 (cold → warm → conversion). Rebuilt measurement with CAPI and server-side signals. Rolled out HERO–HUB–HYGIENE creative. Layered retention and tightened payback."
+      }
+    ],
+    "metrics": [
+      {
+        "value": "5.3×",
+        "label": "Final ROAS",
+        "base": "Was 4.3× at start"
+      },
+      {
+        "value": "₹1.5Cr",
+        "label": "Monthly Revenue",
+        "base": "Was ₹40L"
+      },
+      {
+        "value": "3.75×",
+        "label": "Revenue Multiplier",
+        "base": "Same brand, same category"
+      },
+      {
+        "value": "3×",
+        "label": "Brand Recall Lift",
+        "base": "Via HERO–HUB–HYGIENE"
+      }
+    ],
+    "timeline": [
+      {
+        "tag": "Phase 1",
+        "html": "<strong>Audit + Architecture.</strong> Tracking rebuilt. CAPI live. P1P2P3 structure deployed. HERO creatives launched for cold audience."
+      },
+      {
+        "tag": "Phase 2",
+        "html": "<strong>Creative Ecosystem.</strong> HUB content activated for warm layer. HYGIENE retention ads live. ROAS crossed 5× for first time."
+      },
+      {
+        "tag": "Phase 3",
+        "html": "<strong>Scale.</strong> Budget scaled. Revenue hit ₹1.5Cr/month. Brand recall tripled. System profitable across all funnel stages."
+      }
+    ],
+    "quote": {
+      "text": "Marketing is not turning on ads. It is building systems that produce profitable, scalable growth—month after month.",
+      "attribution": "— Sachin Prajapati · Growth Head, My Pixel Panda"
+    }
+  },
+  "moreWins": {
+    "sectionLabel": "More wins",
+    "kicker": {
+      "before": "Snapshots across ",
+      "em": "launch, scale, and turnaround",
+      "after": " engagements."
+    },
+    "cards": [
+      {
+        "num": "02",
+        "industry": "Accessories D2C — Launch",
+        "title": "₹1L on Day 1 — 13× Meta ROAS, 17× Google ROAS from zero",
+        "description": "New accessories brand. No audience, no history. Built cross-channel signal architecture (Meta + Google) from scratch. Now at ₹30L+/month, projecting ₹1Cr/month.",
+        "metrics": [
+          {
+            "label": "Day-1 Revenue",
+            "value": "₹1 Lakh"
+          },
+          {
+            "label": "Meta ROAS (Day 1)",
+            "value": "13×"
+          },
+          {
+            "label": "Google ROAS (Day 1)",
+            "value": "17×"
+          },
+          {
+            "label": "Current Revenue",
+            "value": "₹30L+/mo"
+          }
+        ]
+      },
+      {
+        "num": "03",
+        "industry": "EdTech — OTOO",
+        "title": "3,000+ leads/month with 47% CPL reduction via Performance Max",
+        "description": "EdTech brand with high CPL and high bounce rate. Data-driven targeting + PMax restructure cut cost per lead by nearly half while scaling volume consistently.",
+        "metrics": [
+          {
+            "label": "Leads Per Month",
+            "value": "3,000+"
+          },
+          {
+            "label": "CPL Reduction",
+            "value": "47%↓"
+          },
+          {
+            "label": "Bounce Rate",
+            "value": "25%↓"
+          },
+          {
+            "label": "Channel",
+            "value": "Meta + PMax"
+          }
+        ]
+      },
+      {
+        "num": "04",
+        "industry": "Clothing D2C — House of Pri",
+        "title": "₹2L → ₹10L/month with 39% CAC reduction",
+        "description": "Clothing brand with zero paid marketing history. Built acquisition engine from scratch — Meta + funnel + creative strategy. 5× revenue, lower CAC.",
+        "metrics": [
+          {
+            "label": "Monthly Revenue",
+            "value": "₹2L → ₹10L"
+          },
+          {
+            "label": "CAC Reduction",
+            "value": "39%↓"
+          },
+          {
+            "label": "Revenue Multiplier",
+            "value": "5×"
+          },
+          {
+            "label": "Channel",
+            "value": "Meta Ads"
+          }
+        ]
+      },
+      {
+        "num": "05",
+        "industry": "Home Décor — Artilicor",
+        "title": "42,784 retargeting sessions and 3.2× ROI from near-zero conversions",
+        "description": "Home décor brand with 0.5% conversion rate. Dynamic ads + deep retargeting funnels rebuilt the system. Tens of thousands of sessions generated via retargeting.",
+        "metrics": [
+          {
+            "label": "Starting Conv. Rate",
+            "value": "0.5%"
+          },
+          {
+            "label": "ROI Delivered",
+            "value": "3.2×"
+          },
+          {
+            "label": "Retargeting Sessions",
+            "value": "42,784"
+          },
+          {
+            "label": "Method",
+            "value": "Dynamic Ads"
+          }
+        ]
+      },
+      {
+        "num": "06",
+        "industry": "AI Wellness — Mannodayam",
+        "title": "₹1.2M quarterly sales + 30 international B2B connections from zero",
+        "description": "AI mental wellness startup. Full GTM strategy built from scratch — brand, acquisition, and international B2B development. Delivered 3.79× ROAS alongside global reach.",
+        "metrics": [
+          {
+            "label": "Quarterly Sales",
+            "value": "₹1.2M+"
+          },
+          {
+            "label": "ROAS",
+            "value": "3.79×"
+          },
+          {
+            "label": "Intl. B2B Connections",
+            "value": "30+"
+          },
+          {
+            "label": "Starting Point",
+            "value": "Zero → GTM"
+          }
+        ]
+      },
+      {
+        "num": "07",
+        "industry": "Pest Control — ECC Hi Care",
+        "title": "90% organic traffic growth and first-page rankings for 15+ keywords in 6 months",
+        "description": "Service brand with zero organic presence. Technical SEO overhaul. ₹43L in final quarter alone. ₹1.8Cr total revenue delivered.",
+        "metrics": [
+          {
+            "label": "Organic Traffic Growth",
+            "value": "90% YoY"
+          },
+          {
+            "label": "Keywords — Page 1",
+            "value": "15+"
+          },
+          {
+            "label": "Final Quarter Revenue",
+            "value": "₹43L"
+          },
+          {
+            "label": "Total Revenue",
+            "value": "₹1.8Cr"
+          }
+        ]
+      }
+    ]
+  },
+  "frameworks": {
+    "sectionLabel": "Frameworks",
+    "kicker": {
+      "before": "Two operating systems I use to align ",
+      "em": "media, creative, and LTV.",
+      "after": ""
+    },
+    "cards": [
+      {
+        "badge": "Framework 01",
+        "title": "P1P2P3 – H1H2H3 Scaling Framework",
+        "description": "Full-funnel media architecture for D2C scale: P1 cold acquisition → P2 warm engagement → P3 conversion and LTV. Each stage pairs with creative hooks—H1 problem-aware, H2 solution-aware, H3 brand-aware. Live across 30+ accounts; core to the ₹40L → ₹1.5 Cr sprint.",
+        "tags": [
+          "Meta Ads",
+          "Google Ads",
+          "Funnel Architecture",
+          "CAC Reduction",
+          "LTV Improvement",
+          "Payback Period"
+        ]
+      },
+      {
+        "badge": "Framework 02",
+        "title": "HERO – HUB – HYGIENE Creative Ecosystem",
+        "description": "A repeatable creative operating model: HERO for reach and recall, HUB for depth on warm audiences, HYGIENE for retention and reorders. Tripled recall on the flagship apparel brand; now the default across the My Pixel Panda portfolio.",
+        "tags": [
+          "Creative Strategy",
+          "UGC Direction",
+          "Brand Recall",
+          "Hook Testing",
+          "Retention Ads",
+          "Storytelling"
+        ]
+      }
+    ]
+  },
+  "bring": {
+    "sectionLabel": "What you get",
+    "kicker": {
+      "before": "Operator-level depth across ",
+      "em": "acquisition, creative, and retention.",
+      "after": ""
+    },
+    "cards": [
+      {
+        "icon": "🎯",
+        "title": "Full-funnel ownership",
+        "description": "From awareness to conversion to LTV—I own the revenue path, not a single channel tab."
+      },
+      {
+        "icon": "📡",
+        "title": "Multi-channel orchestration",
+        "description": "Meta, Google, SEO, email, WhatsApp, retargeting, and automation orchestrated as one system—not competing silos."
+      },
+      {
+        "icon": "🔬",
+        "title": "Measurement you can trust",
+        "description": "GA4, GTM, CAPI, server-side events, and sane attribution—so decisions follow reality, not dashboard fiction."
+      },
+      {
+        "icon": "🎬",
+        "title": "Creative that sells",
+        "description": "Hooks, angles, UGC direction, and testing cadence—creative engineered for conversion, not vanity."
+      },
+      {
+        "icon": "📊",
+        "title": "Decisions from the data layer",
+        "description": "Journeys, CAC maps, cohorts, and revenue models—scale calls backed by evidence, not noise."
+      },
+      {
+        "icon": "👥",
+        "title": "Leadership & systems",
+        "description": "Led a seven-person pod. SOPs, KPIs, and reporting so growth survives beyond any single operator."
+      }
+    ]
+  },
+  "processSection": {
+    "sectionLabel": "How I work",
+    "pipeline": {
+      "words": [
+        "Strategy",
+        "Systems",
+        "Creative",
+        "Analytics"
+      ],
+      "scaleWord": "Scale"
+    },
+    "steps": [
+      {
+        "num": "01",
+        "title": "Strategy — find the real leak",
+        "description": "Deep funnel audit across GA4, GTM, CAPI, and attribution. Most teams optimize the wrong layer—I locate where revenue bleeds before spend moves."
+      },
+      {
+        "num": "02",
+        "title": "Systems — build the architecture",
+        "description": "P1P2P3 structure, rebuilt tracking, and cross-channel design—so the full-funnel engine exists before budgets scale."
+      },
+      {
+        "num": "03",
+        "title": "Creativity — HERO · HUB · HYGIENE",
+        "description": "Structured testing, UGC direction, and hook/angle iteration—winners scale fast, losers get cut; the data picks, not the ego."
+      },
+      {
+        "num": "04",
+        "title": "Scale — retention & LTV compounding",
+        "description": "Email, WhatsApp, subs, and reorder flows timed to your purchase cycle—when LTV compounds, efficient CAC gets easier, not harder."
+      }
+    ]
+  },
+  "ctaSection": {
+    "title": {
+      "before": "Ready to turn spend into ",
+      "em": "a system",
+      "after": "—not stress?"
+    },
+    "subtitle": "I partner with D2C teams that have solid products and honest data. If performance has plateaued, we can audit the full funnel together: clear numbers, prioritized fixes, no slide-deck theatre.",
+    "contactsCardLabel": "Contacts",
+    "auditButton": {
+      "label": "Request a free audit",
+      "subject": "Request a free audit",
+      "body": "Hi,\n\nRequest a free audit for our business -----",
+      "composeProvider": "gmail"
+    },
+    "contactRowLabels": {
+      "phone": "Phone",
+      "email": "Email",
+      "linkedin": "LinkedIn"
+    }
+  },
+  "contact": {
+    "email": "sachinsumer98@gmail.com",
+    "phoneDisplay": "+91 72538 91442",
+    "phoneTel": "+917253891442",
+    "linkedinUrl": "https://www.linkedin.com/in/sachin-prajapati-03234319a/",
+    "linkedinCtaLabel": "Profile ↗"
+  },
+  "footer": {
+    "line1": "© 2026 Sachin Prajapati · D2C growth strategist · Jaipur, Rajasthan · MBA (Marketing & Finance), IET Lucknow",
+    "quote": "Marketing is not turning on ads—it is building systems that deliver profitable, repeatable growth."
+  }
+}
