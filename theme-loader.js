@@ -169,6 +169,27 @@
     }
   }
 
+  function faviconTypeForPath(path) {
+    const lower = String(path || '').toLowerCase();
+    if (lower.endsWith('.png')) return 'image/png';
+    if (lower.endsWith('.webp')) return 'image/webp';
+    if (lower.endsWith('.svg')) return 'image/svg+xml';
+    if (lower.endsWith('.ico')) return 'image/x-icon';
+    return 'image/jpeg';
+  }
+
+  function setFaviconFromPath(path) {
+    if (!path) return;
+    let link = document.querySelector('link[rel="icon"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.rel = 'icon';
+      document.head.appendChild(link);
+    }
+    link.type = faviconTypeForPath(path);
+    link.href = path;
+  }
+
   function applyAssets(t) {
     const a = t.assets && t.assets.heroPhoto;
     if (!a) return;
@@ -177,6 +198,7 @@
       if (a.path) img.src = a.path;
       if (a.alt != null) img.alt = a.alt;
     }
+    if (a.path) setFaviconFromPath(a.path);
   }
 
   function applyNavigation(t) {
