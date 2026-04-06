@@ -299,6 +299,15 @@
     if (title && f.title != null) title.textContent = f.title;
     const desc = card.querySelector('.case-desc');
     if (desc && f.description != null) desc.textContent = f.description;
+    const caseLink = card.querySelector('.featured-case-link');
+    if (caseLink) {
+      if (f.caseStudyUrl) {
+        caseLink.href = f.caseStudyUrl;
+        caseLink.removeAttribute('hidden');
+      }
+      if (f.caseStudyLinkLabel != null) caseLink.textContent = f.caseStudyLinkLabel;
+      if (!f.caseStudyUrl) caseLink.setAttribute('hidden', '');
+    }
     const blks = card.querySelectorAll('.feat-left .blk');
     (f.blocks || []).forEach((b, i) => {
       const el = blks[i];
@@ -333,6 +342,51 @@
     if (f.quote) {
       if (qt && f.quote.text != null) qt.textContent = f.quote.text;
       if (qa && f.quote.attribution != null) qa.textContent = f.quote.attribution;
+    }
+    applyDashboardProof(card, f.dashboardProof);
+  }
+
+  function applyDashboardProof(card, dp) {
+    const wrap = card.querySelector('.feat-proof');
+    if (!wrap) return;
+    if (!dp || !dp.pdfUrl) {
+      wrap.setAttribute('hidden', '');
+      return;
+    }
+    wrap.removeAttribute('hidden');
+    const pdfBase = String(dp.pdfUrl).split('#')[0];
+    const embedHash =
+      dp.pdfEmbedHash != null && String(dp.pdfEmbedHash).trim() !== ''
+        ? String(dp.pdfEmbedHash).replace(/^\#/, '')
+        : 'toolbar=0&navpanes=0&view=FitW';
+    const pdfSrc = pdfBase + '#' + embedHash;
+    const iframe = wrap.querySelector('.feat-proof-frame');
+    const openA = wrap.querySelector('.feat-proof-open');
+    if (iframe) {
+      iframe.src = pdfSrc;
+      iframe.title =
+        dp.frameTitle != null
+          ? dp.frameTitle
+          : 'Shopify analytics dashboard export (PDF)';
+    }
+    if (openA) {
+      openA.href = dp.pdfUrl.split('#')[0];
+      if (dp.openLabel != null) openA.textContent = dp.openLabel;
+    }
+    const eyebrow = wrap.querySelector('.feat-proof-eyebrow');
+    const title = wrap.querySelector('.feat-proof-title');
+    const caption = wrap.querySelector('.feat-proof-caption');
+    const urlBar = wrap.querySelector('.feat-proof-url');
+    const hint = wrap.querySelector('.feat-proof-hint');
+    if (eyebrow && dp.eyebrow != null) eyebrow.textContent = dp.eyebrow;
+    if (title && dp.title != null) title.textContent = dp.title;
+    if (caption && dp.caption != null) caption.textContent = dp.caption;
+    if (urlBar && dp.urlBar != null) urlBar.textContent = dp.urlBar;
+    if (hint && dp.scrollHint != null) {
+      const ic = hint.querySelector('svg.feat-proof-hint-ic');
+      hint.replaceChildren();
+      if (ic) hint.appendChild(ic);
+      hint.appendChild(document.createTextNode(dp.scrollHint));
     }
   }
 
@@ -515,6 +569,16 @@
       rows[0].href = 'tel:' + contact.phoneTel;
       const v0 = rows[0].querySelector('.cta-contact-v');
       if (v0 && contact.phoneDisplay != null) v0.textContent = contact.phoneDisplay;
+      if (contact.phoneCopyToast != null) {
+        rows[0].dataset.copyToast = contact.phoneCopyToast;
+      } else {
+        rows[0].removeAttribute('data-copy-toast');
+      }
+      if (contact.phoneCopyAriaLabel != null) {
+        rows[0].setAttribute('aria-label', contact.phoneCopyAriaLabel);
+      } else {
+        rows[0].setAttribute('aria-label', 'Copy phone number to clipboard');
+      }
     }
     if (contact && rows[1]) {
       rows[1].href = 'mailto:' + contact.email;

@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Study — ₹40L to ₹1.31Cr in 3 Months</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Syne:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #09090A;
+  --card: #111113;
+  --card2: #141416;
+  --border: #1E1E22;
+  --accent: #D4A843;
+  --accent2: #FF6B35;
+  --green: #4ADE80;
+  --text: #EEEEE8;
+  --muted: #78787A;
+  --dim: #44444A;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; line-height: 1.6; }
+
+/* LAYOUT */
+.page { max-width: 1100px; margin: 0 auto; padding: 3rem 2rem 5rem; }
+
+/* HEADER */
+.cs-header { border: 1px solid var(--border); background: var(--card); padding: 2.5rem 3rem; margin-bottom: 1px; position: relative; overflow: hidden; }
+.cs-header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent2)); }
+.cs-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 10px; }
+.cs-eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: var(--accent); }
+.cs-title { font-family: 'Instrument Serif', serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; font-weight: 400; margin-bottom: 0.5rem; }
+.cs-title em { font-style: italic; color: var(--accent); }
+.cs-sub { font-size: 13px; color: var(--muted); max-width: 680px; line-height: 1.8; }
+.cs-meta { display: flex; gap: 2rem; margin-top: 1.75rem; padding-top: 1.5rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.cs-meta-item { font-size: 11px; color: var(--muted); }
+.cs-meta-item strong { color: var(--accent); display: block; font-size: 13px; margin-bottom: 2px; }
+
+/* HERO METRICS ROW */
+.hero-metrics { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--border); margin-bottom: 1px; }
+.hm-box { background: var(--card); padding: 1.75rem 2rem; position: relative; overflow: hidden; transition: background 0.2s; }
+.hm-box:hover { background: var(--card2); }
+.hm-box::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.35s; }
+.hm-box:hover::after { transform: scaleX(1); }
+.hm-label { font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+.hm-val { font-family: 'Instrument Serif', serif; font-size: 2.6rem; color: var(--accent); line-height: 1; }
+.hm-change { font-size: 10px; color: var(--green); margin-top: 5px; display: flex; align-items: center; gap: 4px; }
+.hm-change.neg { color: var(--accent2); }
+.hm-base { font-size: 9px; color: var(--dim); margin-top: 3px; }
+
+/* SECTION LABEL */
+.sec-label { font-size: 9px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+.sec-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* GROWTH JOURNEY */
+.journey-section { background: var(--card); border: 1px solid var(--border); padding: 2.5rem; margin-bottom: 1px; }
+.journey-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 0; position: relative; }
+.journey-grid::before { content: ''; position: absolute; top: 36px; left: calc(12.5%); right: calc(12.5%); height: 2px; background: var(--border); z-index: 0; }
+.journey-step { position: relative; z-index: 1; text-align: center; padding: 0 1rem; }
+.js-dot { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-family: 'Instrument Serif', serif; font-size: 1rem; font-weight: 400; border: 2px solid var(--border); transition: all 0.3s; cursor: default; }
+.js-dot:hover { transform: scale(1.08); }
+.step-jul .js-dot { background: #1a1a1c; border-color: var(--dim); color: var(--muted); }
+.step-aug .js-dot { background: rgba(212,168,67,0.08); border-color: rgba(212,168,67,0.4); color: var(--accent); }
+.step-sep .js-dot { background: rgba(212,168,67,0.14); border-color: rgba(212,168,67,0.6); color: var(--accent); }
+.step-oct .js-dot { background: rgba(212,168,67,0.22); border-color: var(--accent); color: var(--accent); }
+.js-month { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.4rem; }
+.js-rev { font-family: 'Instrument Serif', serif; font-size: 1.5rem; color: var(--text); line-height: 1; margin-bottom: 0.3rem; }
+.step-oct .js-rev { color: var(--accent); }
+.js-tag { font-size: 9px; color: var(--muted); }
+.js-badge { display: inline-block; font-size: 9px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-top: 6px; }
+.badge-base { background: rgba(120,120,122,0.15); color: var(--muted); }
+.badge-2x { background: rgba(212,168,67,0.12); color: var(--accent); }
+.badge-cr { background: rgba(74,222,128,0.12); color: var(--green); }
+.badge-peak { background: rgba(212,168,67,0.2); color: var(--accent); border: 1px solid rgba(212,168,67,0.3); }
+
+/* CHANNEL BREAKDOWN */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-bottom: 1px; }
+.col-panel { background: var(--card); padding: 2rem 2.5rem; }
+
+.channel-bars { display: flex; flex-direction: column; gap: 1.1rem; margin-top: 1.25rem; }
+.ch-row { display: flex; flex-direction: column; gap: 5px; }
+.ch-head { display: flex; justify-content: space-between; align-items: baseline; }
+.ch-name { font-size: 12px; font-weight: 500; color: var(--text); }
+.ch-val { font-size: 13px; font-weight: 700; color: var(--accent); font-family: 'Instrument Serif', serif; }
+.ch-bar-wrap { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.ch-bar { height: 100%; border-radius: 3px; transition: width 1.2s cubic-bezier(0.4,0,0.2,1); }
+.ch-bar-meta { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); }
+
+/* MONTHLY METRICS TABLE */
+.metrics-table { width: 100%; border-collapse: collapse; margin-top: 1.25rem; }
+.metrics-table th { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 0.6rem 1rem; text-align: left; border-bottom: 1px solid var(--border); }
+.metrics-table td { font-size: 12px; padding: 0.9rem 1rem; border-bottom: 1px solid rgba(30,30,34,0.6); vertical-align: middle; }
+.metrics-table tr:last-child td { border-bottom: none; }
+.metrics-table tr:hover td { background: rgba(212,168,67,0.03); }
+.td-month { font-weight: 600; color: var(--text); font-size: 11px; }
+.td-rev { font-family: 'Instrument Serif', serif; font-size: 1.1rem; color: var(--accent); }
+.td-num { color: var(--muted); font-size: 11px; }
+.td-roas { font-weight: 700; }
+.roas-high { color: var(--green); }
+.roas-mid { color: var(--accent); }
+.roas-ok { color: #A0A0A0; }
+.td-tag { display: inline-block; font-size: 9px; padding: 2px 8px; border-radius: 10px; }
+
+/* VISUAL CHART */
+.chart-section { background: var(--card); border: 1px solid var(--border); padding: 2.5rem; margin-bottom: 1px; }
+.chart-wrap { margin-top: 1.5rem; position: relative; }
+.chart-bars { display: flex; align-items: flex-end; gap: 18px; height: 200px; padding-bottom: 0; }
+.bar-group { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end; }
+.bar-stack { width: 100%; display: flex; flex-direction: column; justify-content: flex-end; position: relative; }
+.bar-fill { width: 100%; border-radius: 3px 3px 0 0; transition: height 1.3s cubic-bezier(0.4,0,0.2,1); position: relative; }
+.bar-fill:hover .bar-tip { opacity: 1; }
+.bar-tip { position: absolute; top: -28px; left: 50%; transform: translateX(-50%); font-size: 10px; font-weight: 700; color: var(--text); white-space: nowrap; background: var(--card2); border: 1px solid var(--border); padding: 2px 6px; border-radius: 3px; opacity: 0; transition: opacity 0.2s; pointer-events: none; }
+.bar-label { font-size: 10px; color: var(--muted); letter-spacing: 0.06em; text-align: center; }
+.chart-legend { display: flex; gap: 1.5rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); }
+.legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+.chart-ylines { position: absolute; top: 0; left: 0; right: 0; bottom: 0; display: flex; flex-direction: column; justify-content: space-between; pointer-events: none; }
+.yline { border-top: 1px dashed rgba(30,30,34,0.8); }
+
+/* GEO TABLE */
+.geo-section { background: var(--card); border: 1px solid var(--border); padding: 2.5rem; margin-bottom: 1px; }
+.geo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.25rem; }
+.geo-table { width: 100%; border-collapse: collapse; }
+.geo-table th { font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding: 0.5rem 0; border-bottom: 1px solid var(--border); text-align: left; }
+.geo-table td { font-size: 11px; padding: 0.6rem 0; border-bottom: 1px solid rgba(30,30,34,0.5); }
+.geo-table tr:last-child td { border-bottom: none; }
+.geo-rank { color: var(--dim); width: 20px; font-size: 10px; }
+.geo-name { color: var(--text); font-weight: 500; }
+.geo-orders { color: var(--accent); font-family: 'Instrument Serif', serif; font-size: 1rem; text-align: right; }
+.geo-val { color: var(--muted); font-size: 10px; text-align: right; }
+.geo-bar-col { width: 80px; }
+.geo-mini-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; margin-top: 2px; }
+.geo-mini-fill { height: 100%; border-radius: 2px; background: var(--accent); transition: width 1s ease; }
+
+/* STRATEGY TIMELINE */
+.timeline-section { background: var(--card); border: 1px solid var(--border); padding: 2.5rem; margin-bottom: 1px; }
+.tl-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-top: 1.5rem; }
+.tl-card { background: var(--card2); padding: 1.75rem; }
+.tl-phase { font-size: 9px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+.tl-title { font-family: 'Instrument Serif', serif; font-size: 1.1rem; margin-bottom: 0.9rem; font-weight: 400; }
+.tl-items { display: flex; flex-direction: column; gap: 6px; }
+.tl-item { display: flex; align-items: flex-start; gap: 8px; font-size: 11px; color: var(--muted); line-height: 1.5; }
+.tl-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; margin-top: 6px; }
+
+/* BOTTOM INSIGHT */
+.insight-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); margin-bottom: 1px; }
+.insight-box { background: var(--card); padding: 1.75rem 2rem; }
+.ib-icon { font-size: 1.4rem; margin-bottom: 0.75rem; }
+.ib-title { font-size: 12px; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+.ib-desc { font-size: 11px; color: var(--muted); line-height: 1.75; }
+
+/* FOOTER */
+.cs-footer { background: var(--card); border: 1px solid var(--border); padding: 1.75rem 2.5rem; display: flex; justify-content: space-between; align-items: center; }
+.cs-footer p { font-size: 11px; color: var(--muted); }
+.cs-footer em { font-family: 'Instrument Serif', serif; font-style: italic; color: var(--dim); }
+
+/* ANIMATIONS */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 768px) {
+  .page { padding: 1.5rem 1rem 4rem; }
+  .hero-metrics { grid-template-columns: 1fr 1fr; }
+  .journey-grid { grid-template-columns: 1fr 1fr; }
+  .journey-grid::before { display: none; }
+  .two-col, .tl-grid, .insight-row { grid-template-columns: 1fr; }
+  .geo-grid { grid-template-columns: 1fr; }
+  .cs-header { padding: 1.75rem; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="cs-header reveal">
+    <div class="cs-eyebrow">Apparel D2C · My Pixel Panda Portfolio · Confidential</div>
+    <h1 class="cs-title">₹40L → <em>₹1.31 Crore</em><br>in 3 months.</h1>
+    <p class="cs-sub">A clothing brand scaling from ₹47.48L/month to ₹1.31Cr/month using the P1P2P3–H1H2H3 framework, geo-led acquisition strategy, cross-channel signal architecture, and a systematic creative expansion plan.</p>
+    <div class="cs-meta">
+      <div class="cs-meta-item"><strong>Industry</strong>Apparel · D2C</div>
+      <div class="cs-meta-item"><strong>Timeline</strong>July → October 2024</div>
+      <div class="cs-meta-item"><strong>Primary Channel</strong>Meta Ads (5.3× ROAS)</div>
+      <div class="cs-meta-item"><strong>Framework</strong>P1P2P3–H1H2H3 + HERO–HUB–HYGIENE</div>
+      <div class="cs-meta-item"><strong>Peak Ad Budget</strong>₹28.21L/month</div>
+      <div class="cs-meta-item"><strong>Total Orders (Oct)</strong>7,507</div>
+    </div>
+  </div>
+
+  <!-- HERO METRICS -->
+  <div class="hero-metrics reveal">
+    <div class="hm-box">
+      <div class="hm-label">Peak Revenue</div>
+      <div class="hm-val">₹1.31Cr</div>
+      <div class="hm-change">↑ 176% from baseline</div>
+      <div class="hm-base">Was ₹47.48L in July</div>
+    </div>
+    <div class="hm-box">
+      <div class="hm-label">Total Orders (Oct)</div>
+      <div class="hm-val">7,507</div>
+      <div class="hm-change">↑ 184% growth</div>
+      <div class="hm-base">Was 2,648 in July</div>
+    </div>
+    <div class="hm-box">
+      <div class="hm-label">Meta ROAS (Aug)</div>
+      <div class="hm-val">5.3×</div>
+      <div class="hm-change">₹64L revenue on ₹12.07L spend</div>
+      <div class="hm-base">Primary scaling channel</div>
+    </div>
+    <div class="hm-box">
+      <div class="hm-label">AOV Maintained</div>
+      <div class="hm-val">₹1,753</div>
+      <div class="hm-change">Stable across scale</div>
+      <div class="hm-base">₹1,793 July → ₹1,753 Oct</div>
+    </div>
+  </div>
+
+  <!-- GROWTH JOURNEY -->
+  <div class="journey-section reveal">
+    <div class="sec-label">Month-by-month revenue journey</div>
+    <div class="journey-grid">
+      <div class="journey-step step-jul">
+        <div class="js-dot">Baseline</div>
+        <div class="js-month">July 2024</div>
+        <div class="js-rev">₹47.48L</div>
+        <div class="js-tag">2,648 orders · ₹8.33L spend</div>
+        <div><span class="js-badge badge-base">Pre-strategy</span></div>
+      </div>
+      <div class="journey-step step-aug">
+        <div class="js-dot">Month 1</div>
+        <div class="js-month">August 2024</div>
+        <div class="js-rev">₹97.19L</div>
+        <div class="js-tag">5,737 orders · ₹19.18L spend</div>
+        <div><span class="js-badge badge-2x">2× revenue</span></div>
+      </div>
+      <div class="journey-step step-sep">
+        <div class="js-dot">Month 2</div>
+        <div class="js-month">September 2024</div>
+        <div class="js-rev">₹1.12Cr</div>
+        <div class="js-tag">6,428 orders · ₹25.56L spend</div>
+        <div><span class="js-badge badge-cr">Crossed ₹1Cr</span></div>
+      </div>
+      <div class="journey-step step-oct">
+        <div class="js-dot">Month 3</div>
+        <div class="js-month">October 2024</div>
+        <div class="js-rev">₹1.31Cr</div>
+        <div class="js-tag">7,507 orders · ₹28.21L spend</div>
+        <div><span class="js-badge badge-peak">Peak performance</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHANNEL BREAKDOWN + MONTHLY TABLE -->
+  <div class="two-col reveal">
+    <div class="col-panel">
+      <div class="sec-label">Channel breakdown — August</div>
+      <div class="channel-bars">
+        <div class="ch-row">
+          <div class="ch-head"><span class="ch-name">Meta Ads</span><span class="ch-val">₹64L · 5.3× ROAS</span></div>
+          <div class="ch-bar-wrap"><div class="ch-bar" style="width:0%;background:#D4A843" data-w="80%"></div></div>
+          <div class="ch-bar-meta"><span>₹12.07L spend</span><span>80% of revenue</span></div>
+        </div>
+        <div class="ch-row">
+          <div class="ch-head"><span class="ch-name">Influencer</span><span class="ch-val">₹10.4L · 2× ROAS</span></div>
+          <div class="ch-bar-wrap"><div class="ch-bar" style="width:0%;background:#FF6B35" data-w="13%"></div></div>
+          <div class="ch-bar-meta"><span>₹5.2L spend</span><span>13% of revenue</span></div>
+        </div>
+        <div class="ch-row">
+          <div class="ch-head"><span class="ch-name">Google Ads</span><span class="ch-val">₹4L · 2× ROAS</span></div>
+          <div class="ch-bar-wrap"><div class="ch-bar" style="width:0%;background:#4ADE80" data-w="5%"></div></div>
+          <div class="ch-bar-meta"><span>₹2L spend</span><span>5% of revenue</span></div>
+        </div>
+        <div class="ch-row">
+          <div class="ch-head"><span class="ch-name">WhatsApp / Automation</span><span class="ch-val">₹1.6L · Retention</span></div>
+          <div class="ch-bar-wrap"><div class="ch-bar" style="width:0%;background:#7C6AFF" data-w="2%"></div></div>
+          <div class="ch-bar-meta"><span>₹0.5L spend</span><span>2% of revenue</span></div>
+        </div>
+      </div>
+      <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border)">
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span style="font-size:11px;color:var(--muted)">Total August Revenue</span>
+          <span style="font-family:'Instrument Serif',serif;font-size:1.6rem;color:var(--accent)">₹80L</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;margin-top:4px">
+          <span style="font-size:11px;color:var(--muted)">Total Spend</span>
+          <span style="font-size:12px;color:var(--muted)">~₹19.77L</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-panel">
+      <div class="sec-label">Monthly performance metrics</div>
+      <table class="metrics-table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Revenue</th>
+            <th>Spend</th>
+            <th>Orders</th>
+            <th>CPA</th>
+            <th>ROAS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="td-month">July</div><div style="font-size:9px;color:var(--dim)">Baseline</div></td>
+            <td class="td-rev">₹47.48L</td>
+            <td class="td-num">₹8.33L</td>
+            <td class="td-num">2,648</td>
+            <td class="td-num">₹298</td>
+            <td class="td-roas roas-high">6.01×</td>
+          </tr>
+          <tr>
+            <td><div class="td-month">August</div><div style="font-size:9px;color:var(--accent)">Month 1</div></td>
+            <td class="td-rev">₹97.19L</td>
+            <td class="td-num">₹19.18L</td>
+            <td class="td-num">5,737</td>
+            <td class="td-num">₹334</td>
+            <td class="td-roas roas-mid">5.07×</td>
+          </tr>
+          <tr>
+            <td><div class="td-month">September</div><div style="font-size:9px;color:var(--accent)">Month 2</div></td>
+            <td class="td-rev">₹1.12Cr</td>
+            <td class="td-num">₹25.56L</td>
+            <td class="td-num">6,428</td>
+            <td class="td-num">₹398</td>
+            <td class="td-roas roas-ok">4.41×</td>
+          </tr>
+          <tr>
+            <td><div class="td-month">October</div><div style="font-size:9px;color:var(--green)">Peak</div></td>
+            <td class="td-rev">₹1.31Cr</td>
+            <td class="td-num">₹28.21L</td>
+            <td class="td-num">7,507</td>
+            <td class="td-num">₹376</td>
+            <td class="td-roas roas-ok">4.66×</td>
+          </tr>
+        </tbody>
+      </table>
+      <div style="margin-top:1rem;padding:0.75rem 1rem;background:rgba(212,168,67,0.05);border-left:2px solid var(--accent);font-size:11px;color:var(--muted);line-height:1.7">
+        Note: ROAS dropped slightly as budget scaled aggressively (expected). CPA recovered from ₹398 (Sep) to ₹376 (Oct) — efficiency regained at higher volume.
+      </div>
+    </div>
+  </div>
+
+  <!-- REVENUE BAR CHART -->
+  <div class="chart-section reveal">
+    <div class="sec-label">Revenue vs ad spend — visual growth curve</div>
+    <div class="chart-wrap">
+      <div class="chart-bars" id="chartBars">
+        <div class="bar-group">
+          <div class="bar-stack" style="height:100%">
+            <div style="height:calc(100% - 36%)"></div>
+            <div class="bar-fill" style="height:0;background:#2A2A2E;min-height:4px" data-h="36%">
+              <div class="bar-tip">₹8.33L spend</div>
+            </div>
+          </div>
+          <div class="bar-stack" style="height:100%;position:absolute;bottom:0;left:0;right:0">
+          </div>
+          <div class="bar-label">July</div>
+        </div>
+        <div class="bar-group">
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:3px">
+            <div class="bar-fill" style="height:0;background:#2A2A2E" data-h="15%"><div class="bar-tip">₹19.18L spend</div></div>
+            <div class="bar-fill" style="height:0;background:rgba(212,168,67,0.6);border-radius:3px 3px 0 0" data-h="59%"><div class="bar-tip">₹97.19L revenue</div></div>
+          </div>
+          <div class="bar-label">August</div>
+        </div>
+        <div class="bar-group">
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:3px">
+            <div class="bar-fill" style="height:0;background:#2A2A2E" data-h="19%"><div class="bar-tip">₹25.56L spend</div></div>
+            <div class="bar-fill" style="height:0;background:rgba(212,168,67,0.75);border-radius:3px 3px 0 0" data-h="72%"><div class="bar-tip">₹1.12Cr revenue</div></div>
+          </div>
+          <div class="bar-label">September</div>
+        </div>
+        <div class="bar-group">
+          <div style="width:100%;height:100%;display:flex;flex-direction:column;justify-content:flex-end;gap:3px">
+            <div class="bar-fill" style="height:0;background:#2A2A2E" data-h="21%"><div class="bar-tip">₹28.21L spend</div></div>
+            <div class="bar-fill" style="height:0;background:var(--accent);border-radius:3px 3px 0 0" data-h="85%"><div class="bar-tip">₹1.31Cr revenue</div></div>
+          </div>
+          <div class="bar-label">October</div>
+        </div>
+      </div>
+      <div class="chart-legend">
+        <div class="legend-item"><div class="legend-dot" style="background:var(--accent)"></div>Revenue</div>
+        <div class="legend-item"><div class="legend-dot" style="background:#2A2A2E;border:1px solid #444"></div>Ad Spend</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GEO PERFORMANCE -->
+  <div class="geo-section reveal">
+    <div class="sec-label">Top geo performance — orders & revenue</div>
+    <div class="geo-grid">
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:1rem;">Top 10 Cities by Orders</div>
+        <table class="geo-table">
+          <tr><th>#</th><th>City</th><th style="text-align:right">Orders</th><th style="text-align:right">Revenue</th></tr>
+          <tr><td class="geo-rank">1</td><td class="geo-name">Delhi</td><td class="geo-orders">90</td><td class="geo-val">₹1,58,490</td></tr>
+          <tr><td class="geo-rank">2</td><td class="geo-name">Mumbai</td><td class="geo-orders">59</td><td class="geo-val">₹95,478</td></tr>
+          <tr><td class="geo-rank">3</td><td class="geo-name">Gurgaon</td><td class="geo-orders">56</td><td class="geo-val">₹91,592</td></tr>
+          <tr><td class="geo-rank">4</td><td class="geo-name">Bangalore</td><td class="geo-orders">56</td><td class="geo-val">₹1,00,063</td></tr>
+          <tr><td class="geo-rank">5</td><td class="geo-name">Hyderabad</td><td class="geo-orders">51</td><td class="geo-val">₹85,880</td></tr>
+          <tr><td class="geo-rank">6</td><td class="geo-name">Kolkata</td><td class="geo-orders">45</td><td class="geo-val">₹65,430</td></tr>
+          <tr><td class="geo-rank">7</td><td class="geo-name">Pune</td><td class="geo-orders">44</td><td class="geo-val">₹74,817</td></tr>
+          <tr><td class="geo-rank">8</td><td class="geo-name">Ghaziabad</td><td class="geo-orders">32</td><td class="geo-val">₹53,159</td></tr>
+          <tr><td class="geo-rank">9</td><td class="geo-name">Noida</td><td class="geo-orders">29</td><td class="geo-val">₹53,020</td></tr>
+          <tr><td class="geo-rank">10</td><td class="geo-name">New Delhi</td><td class="geo-orders">26</td><td class="geo-val">₹37,961</td></tr>
+        </table>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:700;color:var(--text);margin-bottom:1rem;">Top 10 States by Orders</div>
+        <table class="geo-table">
+          <tr><th>#</th><th>State</th><th style="text-align:right">Orders</th><th style="text-align:right">Revenue</th></tr>
+          <tr>
+            <td class="geo-rank">1</td><td class="geo-name">Maharashtra</td>
+            <td class="geo-orders">185</td><td class="geo-val">₹2,99,234</td>
+          </tr>
+          <tr><td class="geo-rank">2</td><td class="geo-name">Delhi</td><td class="geo-orders">161</td><td class="geo-val">₹2,64,917</td></tr>
+          <tr><td class="geo-rank">3</td><td class="geo-name">Uttar Pradesh</td><td class="geo-orders">153</td><td class="geo-val">₹2,37,986</td></tr>
+          <tr><td class="geo-rank">4</td><td class="geo-name">Haryana</td><td class="geo-orders">132</td><td class="geo-val">₹2,15,097</td></tr>
+          <tr><td class="geo-rank">5</td><td class="geo-name">Karnataka</td><td class="geo-orders">88</td><td class="geo-val">₹1,72,899</td></tr>
+          <tr><td class="geo-rank">6</td><td class="geo-name">Punjab</td><td class="geo-orders">81</td><td class="geo-val">₹1,33,770</td></tr>
+          <tr><td class="geo-rank">7</td><td class="geo-name">Gujarat</td><td class="geo-orders">80</td><td class="geo-val">₹1,20,548</td></tr>
+          <tr><td class="geo-rank">8</td><td class="geo-name">West Bengal</td><td class="geo-orders">66</td><td class="geo-val">₹1,01,771</td></tr>
+          <tr><td class="geo-rank">9</td><td class="geo-name">Telangana</td><td class="geo-orders">61</td><td class="geo-val">₹1,00,171</td></tr>
+          <tr><td class="geo-rank">10</td><td class="geo-name">Rajasthan</td><td class="geo-orders">59</td><td class="geo-val">₹77,627</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- STRATEGY EXECUTION -->
+  <div class="timeline-section reveal">
+    <div class="sec-label">Execution roadmap — what happened each month</div>
+    <div class="tl-grid">
+      <div class="tl-card">
+        <div class="tl-phase">Week 1–4 · August</div>
+        <div class="tl-title">Execution Sprint</div>
+        <div class="tl-items">
+          <div class="tl-item"><div class="tl-dot"></div><span>8–10 UGC creatives + 3 statics + 2 carousels launched</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>10–15 influencers onboarded (Week 2)</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>Google Shopping feed live — 5–6 keyword groups</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>WhatsApp flows built + first broadcast sent</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>Meta scaled to ₹12.07L spend at 5.3× ROAS</span></div>
+        </div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-phase">Month 2 · September</div>
+        <div class="tl-title">Double Budget + A/B Test</div>
+        <div class="tl-items">
+          <div class="tl-item"><div class="tl-dot"></div><span>Ad budget doubled — Meta + Google simultaneous scaling</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>New creative angles tested — hook variations, UGC 2.0</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>Revenue crosses ₹1 Crore for first time</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>CAC rises to ₹398 — managed, expected during scale</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>6,428 orders processed successfully</span></div>
+        </div>
+      </div>
+      <div class="tl-card">
+        <div class="tl-phase">Month 3 · October</div>
+        <div class="tl-title">Refinement + Peak Scale</div>
+        <div class="tl-items">
+          <div class="tl-item"><div class="tl-dot"></div><span>Efficiency regained — CPA drops ₹398 → ₹376</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>Press + GMB visibility strategy deployed</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>ROAS stabilises at 4.66× at peak budget</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>7,507 orders — highest volume in 3-month sprint</span></div>
+          <div class="tl-item"><div class="tl-dot"></div><span>₹1.31Cr revenue — target exceeded</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY INSIGHTS -->
+  <div class="insight-row reveal">
+    <div class="insight-box">
+      <div class="ib-icon">📍</div>
+      <div class="ib-title">Geo-led acquisition unlocked scale</div>
+      <div class="ib-desc">Maharashtra, Delhi, UP, Haryana top 4 states = highest order density. Concentrating budget here first reduced CAC before expanding to tier-2 cities.</div>
+    </div>
+    <div class="insight-box">
+      <div class="ib-icon">📺</div>
+      <div class="ib-title">Meta carried 80% of revenue</div>
+      <div class="ib-desc">Meta at 5.3× ROAS drove ₹64L of ₹80L August revenue. Google and influencers layered in without cannibalising — signal architecture kept attribution clean.</div>
+    </div>
+    <div class="insight-box">
+      <div class="ib-icon">📈</div>
+      <div class="ib-title">CAC rise was planned, not a problem</div>
+      <div class="ib-desc">CPA moved ₹298 → ₹398 during aggressive scale (expected), then recovered to ₹376 in October. AOV stayed stable at ₹1,753 — margins held throughout.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="cs-footer reveal">
+    <p>Case Study by <strong>Sachin Prajapati</strong> · Growth Head, My Pixel Panda · <a href="mailto:sachinsumer98@gmail.com" style="color:var(--accent);text-decoration:none">sachinsumer98@gmail.com</a></p>
+    <p><em>"Marketing is not turning on ads. It is building systems that produce profitable, scalable growth."</em></p>
+  </div>
+
+</div>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Animate bars when section visible
+        const bars = e.target.querySelectorAll('.ch-bar[data-w]');
+        bars.forEach(b => setTimeout(() => b.style.width = b.dataset.w, 200));
+        const barFills = e.target.querySelectorAll('.bar-fill[data-h]');
+        barFills.forEach(b => setTimeout(() => b.style.height = b.dataset.h, 300));
+      }
+    });
+  }, { threshold: 0.08 });
+  reveals.forEach(r => io.observe(r));
+
+  // Also trigger chart if already visible
+  window.addEventListener('load', () => {
+    document.querySelectorAll('.ch-bar[data-w]').forEach(b => {
+      if (b.closest('.reveal.visible')) b.style.width = b.dataset.w;
+    });
+  });
+
+  // Hover tooltip on bar fills
+  document.querySelectorAll('.bar-fill').forEach(b => {
+    b.addEventListener('mouseenter', () => {
+      const tip = b.querySelector('.bar-tip');
+      if (tip) tip.style.opacity = '1';
+    });
+    b.addEventListener('mouseleave', () => {
+      const tip = b.querySelector('.bar-tip');
+      if (tip) tip.style.opacity = '0';
+    });
+  });
+</script>
+</body>
+</html>

@@ -146,7 +146,7 @@
         "label": "Brands scaled"
       },
       {
-        "value": "₹1.5Cr",
+        "value": "₹1.31Cr",
         "label": "Peak monthly revenue"
       },
       {
@@ -238,63 +238,75 @@
   "featuredCase": {
     "sectionLabel": "Flagship case",
     "kicker": {
-      "before": "From plateau to ",
-      "em": "₹1.5 Cr / month",
-      "after": "—same brand, sharper system."
+      "before": "Peak ",
+      "em": "₹1.31 Cr / month",
+      "after": " · July → October 2024"
     },
     "badge": "Featured result",
     "brandTag": "Apparel D2C — My Pixel Panda Portfolio",
-    "caseCat": "Full-Funnel · P1P2P3–H1H2H3 Framework",
-    "title": "₹40L → ₹1.5 Crore/month at 5.3 ROAS — same brand, same category",
-    "description": "A clothing brand stuck near ₹40L/month at 4.3× ROAS—strong product, weak system. We rebuilt tracking, creative rhythm, and campaign architecture with the P1P2P3–H1H2H3 framework. Revenue climbed 3.75× with healthier margins.",
+    "caseCat": "Full-Funnel · P1P2P3–H1H2H3 + HERO–HUB–HYGIENE",
+    "title": "₹40L → ₹1.31 Crore in 3 months — same brand, full-funnel scale",
+    "description": "A clothing brand scaling from ₹47.48L/month to ₹1.31Cr/month using the P1P2P3–H1H2H3 framework, geo-led acquisition strategy, cross-channel signal architecture, and a systematic creative expansion plan.",
+    "caseStudyUrl": "case-study-40l-to-131cr.html",
+    "caseStudyLinkLabel": "Read full case study",
+    "dashboardProof": {
+      "pdfUrl": "proof-shopify-dashboard.pdf",
+      "pdfEmbedHash": "toolbar=0&navpanes=0&view=FitW",
+      "eyebrow": "Verification",
+      "title": "Shopify analytics — dashboard capture",
+      "urlBar": "admin.shopify.com/store/···/analytics",
+      "caption": "Gulmohar Jaipur · Full-length scrolling export — raw numbers behind the ₹1.31Cr peak narrative.",
+      "scrollHint": "Scroll inside the frame — it’s a long capture",
+      "openLabel": "Open full PDF"
+    },
     "blocks": [
       {
-        "label": "The Problem",
-        "body": "ROAS flat at 4.3×. No disciplined creative testing. Tracking was unreliable—CAPI missing, attribution skewed. No real warm funnel or retention motion. Pushing budget only squeezed margins."
+        "label": "The Situation",
+        "body": "Strong July baseline (₹47.48L, 2,648 orders) but the brand needed a disciplined system to scale—geo-led acquisition, clean cross-channel signals, and a creative expansion plan without losing efficiency."
       },
       {
-        "label": "What We Did",
-        "body": "Deployed P1P2P3 (cold → warm → conversion). Rebuilt measurement with CAPI and server-side signals. Rolled out HERO–HUB–HYGIENE creative. Layered retention and tightened payback."
+        "label": "What We Ran",
+        "body": "P1P2P3–H1H2H3 plus HERO–HUB–HYGIENE: Meta scaled to ₹12.07L spend at 5.3× ROAS in August (₹64L of ₹80L revenue); layered Google, influencers, and WhatsApp. Budget grew to ₹28.21L/month by October—peak ₹1.31Cr revenue and 7,507 orders."
       }
     ],
     "metrics": [
       {
+        "value": "₹1.31Cr",
+        "label": "Peak revenue",
+        "base": "Was ₹47.48L in July"
+      },
+      {
+        "value": "7,507",
+        "label": "Orders (Oct)",
+        "base": "Was 2,648 in July"
+      },
+      {
         "value": "5.3×",
-        "label": "Final ROAS",
-        "base": "Was 4.3× at start"
+        "label": "Meta ROAS (Aug)",
+        "base": "₹64L on ₹12.07L spend"
       },
       {
-        "value": "₹1.5Cr",
-        "label": "Monthly Revenue",
-        "base": "Was ₹40L"
-      },
-      {
-        "value": "3.75×",
-        "label": "Revenue Multiplier",
-        "base": "Same brand, same category"
-      },
-      {
-        "value": "3×",
-        "label": "Brand Recall Lift",
-        "base": "Via HERO–HUB–HYGIENE"
+        "value": "₹1,753",
+        "label": "AOV maintained",
+        "base": "₹1,793 Jul → ₹1,753 Oct"
       }
     ],
     "timeline": [
       {
-        "tag": "Phase 1",
-        "html": "<strong>Audit + Architecture.</strong> Tracking rebuilt. CAPI live. P1P2P3 structure deployed. HERO creatives launched for cold audience."
+        "tag": "August",
+        "html": "<strong>Execution sprint.</strong> 8–10 UGC + statics + carousels; 10–15 influencers; Google Shopping + WhatsApp flows live. Meta scaled to ₹12.07L at 5.3× ROAS."
       },
       {
-        "tag": "Phase 2",
-        "html": "<strong>Creative Ecosystem.</strong> HUB content activated for warm layer. HYGIENE retention ads live. ROAS crossed 5× for first time."
+        "tag": "September",
+        "html": "<strong>Double budget + tests.</strong> Meta + Google scaled together; new hooks and UGC 2.0. Revenue crossed ₹1Cr; 6,428 orders; CPA ₹398 during aggressive scale (expected)."
       },
       {
-        "tag": "Phase 3",
-        "html": "<strong>Scale.</strong> Budget scaled. Revenue hit ₹1.5Cr/month. Brand recall tripled. System profitable across all funnel stages."
+        "tag": "October",
+        "html": "<strong>Peak scale.</strong> CPA improved ₹398 → ₹376; ROAS 4.66× at peak budget. 7,507 orders; ₹1.31Cr revenue—target exceeded."
       }
     ],
     "quote": {
-      "text": "Marketing is not turning on ads. It is building systems that produce profitable, scalable growth—month after month.",
+      "text": "Marketing is not turning on ads. It is building systems that produce profitable, scalable growth.",
       "attribution": "— Sachin Prajapati · Growth Head, My Pixel Panda"
     }
   },
@@ -463,7 +475,7 @@
       {
         "badge": "Framework 01",
         "title": "P1P2P3 – H1H2H3 Scaling Framework",
-        "description": "Full-funnel media architecture for D2C scale: P1 cold acquisition → P2 warm engagement → P3 conversion and LTV. Each stage pairs with creative hooks—H1 problem-aware, H2 solution-aware, H3 brand-aware. Live across 30+ accounts; core to the ₹40L → ₹1.5 Cr sprint.",
+        "description": "Full-funnel media architecture for D2C scale: P1 cold acquisition → P2 warm engagement → P3 conversion and LTV. Each stage pairs with creative hooks—H1 problem-aware, H2 solution-aware, H3 brand-aware. Live across 30+ accounts; core to the ₹40L → ₹1.31 Cr sprint.",
         "tags": [
           "Meta Ads",
           "Google Ads",
@@ -586,6 +598,8 @@
     "email": "sachinsumer98@gmail.com",
     "phoneDisplay": "+91 72538 91442",
     "phoneTel": "+917253891442",
+    "phoneCopyToast": "Phone number copied to clipboard",
+    "phoneCopyAriaLabel": "Copy phone number to clipboard",
     "linkedinUrl": "https://www.linkedin.com/in/sachin-prajapati-03234319a/",
     "linkedinCtaLabel": "Profile ↗"
   },
