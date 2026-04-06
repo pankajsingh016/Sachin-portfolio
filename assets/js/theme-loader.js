@@ -1,6 +1,6 @@
 /**
- * Loads theme.json and applies copy + design tokens to the page.
- * Serve the site over HTTP (e.g. npx serve . or python -m http.server) so fetch('theme.json') works.
+ * Loads data/theme.json and applies copy + design tokens to the page.
+ * Serve the repo root over HTTP (e.g. python -m http.server) so fetch('data/theme.json') works.
  */
 (function () {
   'use strict';
@@ -139,8 +139,6 @@
     if (role && b.roleShort != null) role.textContent = b.roleShort;
     const desc = document.querySelector('.hero-desc');
     if (desc && b.heroDesc != null) desc.textContent = b.heroDesc;
-    const phil = document.querySelector('.hero-philosophy');
-    if (phil && b.heroPhilosophy != null) phil.textContent = b.heroPhilosophy;
     const hbName = document.querySelector('.hb-name');
     if (hbName && b.photoBadge && b.photoBadge.name != null) hbName.textContent = b.photoBadge.name;
     const hbRole = document.querySelector('.hb-role');
@@ -372,6 +370,16 @@
     if (openA) {
       openA.href = dp.pdfUrl.split('#')[0];
       if (dp.openLabel != null) openA.textContent = dp.openLabel;
+    }
+    const dataA = wrap.querySelector('.feat-proof-data');
+    if (dataA) {
+      if (dp.dataSpreadsheetUrl) {
+        dataA.href = dp.dataSpreadsheetUrl;
+        dataA.removeAttribute('hidden');
+      } else {
+        dataA.setAttribute('hidden', '');
+      }
+      if (dp.dataSpreadsheetLabel != null) dataA.textContent = dp.dataSpreadsheetLabel;
     }
     const eyebrow = wrap.querySelector('.feat-proof-eyebrow');
     const title = wrap.querySelector('.feat-proof-title');
@@ -614,8 +622,75 @@
     if (quote && f.quote != null) quote.textContent = f.quote;
   }
 
+  function themeJsonUrl() {
+    if (
+      typeof window.__THEME_JSON_PATH__ === 'string' &&
+      window.__THEME_JSON_PATH__.length
+    ) {
+      return window.__THEME_JSON_PATH__;
+    }
+    return 'data/theme.json';
+  }
+
+  function applyPortfolioSubpageNav(t) {
+    const nav = t.navigation;
+    if (!nav || !nav.items) return;
+    const links = document.querySelectorAll('.nav-links a');
+    nav.items.forEach((item, i) => {
+      if (!links[i]) return;
+      if (item.label != null) links[i].textContent = item.label;
+      const hash =
+        item.href != null && String(item.href).startsWith('#')
+          ? String(item.href)
+          : '';
+      links[i].href = '../index.html' + hash;
+    });
+  }
+
+  function applyExcelSubpage(theme) {
+    applyPortfolioSubpageNav(theme);
+    const logo = document.querySelector('.nav-logo');
+    if (logo && theme.brand && theme.brand.navLogo != null) {
+      logo.textContent = theme.brand.navLogo;
+    }
+    const photo = theme.assets && theme.assets.heroPhoto;
+    if (photo && photo.path) {
+      const p = String(photo.path).replace(/^\//, '');
+      setFaviconFromPath(p.indexOf('../') === 0 ? p : '../' + p);
+    }
+    if (theme.site && theme.site.lang) {
+      document.documentElement.lang = theme.site.lang;
+    }
+    const excelUrl =
+      typeof window.__EXCEL_DATA_PATH__ === 'string' &&
+      window.__EXCEL_DATA_PATH__.length
+        ? window.__EXCEL_DATA_PATH__
+        : '../data/excel-data.json';
+    fetch(excelUrl, { cache: 'no-store' })
+      .then((r) => {
+        if (!r.ok) throw new Error(excelUrl + ' HTTP ' + r.status);
+        return r.json();
+      })
+      .then((data) => {
+        if (typeof window.initExcelDataPage === 'function') {
+          window.initExcelDataPage(data);
+        }
+      })
+      .catch((e) => {
+        console.error('[excel-data]', e);
+      })
+      .finally(() => {
+        document.documentElement.classList.add('theme-ready');
+      });
+  }
+
   function applyTheme(theme) {
     applyDesign(theme);
+    const page = document.documentElement.getAttribute('data-page');
+    if (page === 'excel-data') {
+      applyExcelSubpage(theme);
+      return;
+    }
     applySiteMeta(theme);
     applyBrand(theme);
     applyHeroEyebrow(theme);
@@ -643,16 +718,16 @@
   }
 
   function init() {
-    fetch('theme.json', { cache: 'no-store' })
+    fetch(themeJsonUrl(), { cache: 'no-store' })
       .then((r) => {
-        if (!r.ok) throw new Error('theme.json HTTP ' + r.status);
+        if (!r.ok) throw new Error(themeJsonUrl() + ' HTTP ' + r.status);
         return r.json();
       })
       .then(applyTheme)
       .catch((e) => {
         showThemeError(
           e.message +
-            ' — Use a local server (e.g. python -m http.server) so theme.json can load.'
+            ' — Serve the repo root over HTTP (e.g. python3 -m http.server) so the theme JSON path can load.'
         );
       });
   }

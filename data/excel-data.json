@@ -1,0 +1,454 @@
+{
+  "documentTitle": "Performance data — ₹40L to ₹1.31Cr",
+  "backLink": {
+    "label": "Portfolio",
+    "href": "../index.html#cases"
+  },
+  "header": {
+    "eyebrow": "Apparel D2C · My Pixel Panda Portfolio",
+    "titleHtml": "₹40L → <em>₹1.31 Crore</em><br>in 3 months.",
+    "intro": "A clothing brand scaling from ₹47.48L/month to ₹1.31Cr/month using the P1P2P3–H1H2H3 framework, geo-led acquisition strategy, cross-channel signal architecture, and a systematic creative expansion plan.",
+    "meta": [
+      {
+        "label": "Industry",
+        "value": "Apparel · D2C"
+      },
+      {
+        "label": "Timeline",
+        "value": "July → October 2024"
+      },
+      {
+        "label": "Primary Channel",
+        "value": "Meta Ads (5.3× ROAS)"
+      },
+      {
+        "label": "Framework",
+        "value": "P1P2P3–H1H2H3 + HERO–HUB–HYGIENE"
+      },
+      {
+        "label": "Peak Ad Budget",
+        "value": "₹28.21L/month"
+      },
+      {
+        "label": "Total Orders (Oct)",
+        "value": "7,507"
+      }
+    ]
+  },
+  "metricsBoxes": [
+    {
+      "label": "Peak Revenue",
+      "value": "₹1.31Cr",
+      "change": "↑ 176% from baseline",
+      "base": "Was ₹47.48L in July"
+    },
+    {
+      "label": "Total Orders (Oct)",
+      "value": "7,507",
+      "change": "↑ 184% growth",
+      "base": "Was 2,648 in July"
+    },
+    {
+      "label": "Meta ROAS (Aug)",
+      "value": "5.3×",
+      "change": "₹64L revenue on ₹12.07L spend",
+      "base": "Primary scaling channel"
+    },
+    {
+      "label": "AOV Maintained",
+      "value": "₹1,753",
+      "change": "Stable across scale",
+      "base": "₹1,793 July → ₹1,753 Oct"
+    }
+  ],
+  "journey": {
+    "sectionLabel": "Month-by-month revenue journey",
+    "steps": [
+      {
+        "dot": "Baseline",
+        "month": "July 2024",
+        "rev": "₹47.48L",
+        "tag": "2,648 orders · ₹8.33L spend",
+        "badge": "Pre-strategy",
+        "badgeClass": "excel-badge-base",
+        "stepClass": "excel-step-jul"
+      },
+      {
+        "dot": "Month 1",
+        "month": "August 2024",
+        "rev": "₹97.19L",
+        "tag": "5,737 orders · ₹19.18L spend",
+        "badge": "2× revenue",
+        "badgeClass": "excel-badge-2x",
+        "stepClass": "excel-step-aug"
+      },
+      {
+        "dot": "Month 2",
+        "month": "September 2024",
+        "rev": "₹1.12Cr",
+        "tag": "6,428 orders · ₹25.56L spend",
+        "badge": "Crossed ₹1Cr",
+        "badgeClass": "excel-badge-cr",
+        "stepClass": "excel-step-sep"
+      },
+      {
+        "dot": "Month 3",
+        "month": "October 2024",
+        "rev": "₹1.31Cr",
+        "tag": "7,507 orders · ₹28.21L spend",
+        "badge": "Peak performance",
+        "badgeClass": "excel-badge-peak",
+        "stepClass": "excel-step-oct"
+      }
+    ]
+  },
+  "channelAugust": {
+    "sectionLabel": "Channel breakdown — August",
+    "rows": [
+      {
+        "name": "Meta Ads",
+        "val": "₹64L · 5.3× ROAS",
+        "w": "80%",
+        "color": "#e2bc5a",
+        "left": "₹12.07L spend",
+        "right": "80% of revenue"
+      },
+      {
+        "name": "Influencer",
+        "val": "₹10.4L · 2× ROAS",
+        "w": "13%",
+        "color": "#ff7a4d",
+        "left": "₹5.2L spend",
+        "right": "13% of revenue"
+      },
+      {
+        "name": "Google Ads",
+        "val": "₹4L · 2× ROAS",
+        "w": "5%",
+        "color": "#4ADE80",
+        "left": "₹2L spend",
+        "right": "5% of revenue"
+      },
+      {
+        "name": "WhatsApp / Automation",
+        "val": "₹1.6L · Retention",
+        "w": "2%",
+        "color": "#7C6AFF",
+        "left": "₹0.5L spend",
+        "right": "2% of revenue"
+      }
+    ],
+    "totalRevenueLabel": "Total August Revenue",
+    "totalRevenue": "₹80L",
+    "totalSpendLabel": "Total Spend",
+    "totalSpend": "~₹19.77L"
+  },
+  "monthlyTable": {
+    "sectionLabel": "Monthly performance metrics",
+    "columns": [
+      "Month",
+      "Revenue",
+      "Spend",
+      "Orders",
+      "CPA",
+      "ROAS"
+    ],
+    "rows": [
+      {
+        "month": "July",
+        "sub": "Baseline",
+        "subClass": "excel-sub-dim",
+        "rev": "₹47.48L",
+        "spend": "₹8.33L",
+        "orders": "2,648",
+        "cpa": "₹298",
+        "roas": "6.01×",
+        "roasClass": "excel-roas-high"
+      },
+      {
+        "month": "August",
+        "sub": "Month 1",
+        "subClass": "excel-sub-accent",
+        "rev": "₹97.19L",
+        "spend": "₹19.18L",
+        "orders": "5,737",
+        "cpa": "₹334",
+        "roas": "5.07×",
+        "roasClass": "excel-roas-mid"
+      },
+      {
+        "month": "September",
+        "sub": "Month 2",
+        "subClass": "excel-sub-accent",
+        "rev": "₹1.12Cr",
+        "spend": "₹25.56L",
+        "orders": "6,428",
+        "cpa": "₹398",
+        "roas": "4.41×",
+        "roasClass": "excel-roas-ok"
+      },
+      {
+        "month": "October",
+        "sub": "Peak",
+        "subClass": "excel-sub-green",
+        "rev": "₹1.31Cr",
+        "spend": "₹28.21L",
+        "orders": "7,507",
+        "cpa": "₹376",
+        "roas": "4.66×",
+        "roasClass": "excel-roas-ok"
+      }
+    ],
+    "note": "Note: ROAS dropped slightly as budget scaled aggressively (expected). CPA recovered from ₹398 (Sep) to ₹376 (Oct) — efficiency regained at higher volume."
+  },
+  "chart": {
+    "sectionLabel": "Revenue vs ad spend — visual growth curve",
+    "legendRevenue": "Revenue",
+    "legendSpend": "Ad Spend",
+    "months": [
+      {
+        "label": "July",
+        "bars": [
+          {
+            "h": "36%",
+            "bg": "#2a2a2e",
+            "tip": "₹8.33L spend"
+          }
+        ]
+      },
+      {
+        "label": "August",
+        "bars": [
+          {
+            "h": "15%",
+            "bg": "#2a2a2e",
+            "tip": "₹19.18L spend"
+          },
+          {
+            "h": "59%",
+            "bg": "rgba(226,188,90,0.55)",
+            "tip": "₹97.19L revenue"
+          }
+        ]
+      },
+      {
+        "label": "September",
+        "bars": [
+          {
+            "h": "19%",
+            "bg": "#2a2a2e",
+            "tip": "₹25.56L spend"
+          },
+          {
+            "h": "72%",
+            "bg": "rgba(226,188,90,0.72)",
+            "tip": "₹1.12Cr revenue"
+          }
+        ]
+      },
+      {
+        "label": "October",
+        "bars": [
+          {
+            "h": "21%",
+            "bg": "#2a2a2e",
+            "tip": "₹28.21L spend"
+          },
+          {
+            "h": "85%",
+            "bg": "var(--accent)",
+            "tip": "₹1.31Cr revenue"
+          }
+        ]
+      }
+    ]
+  },
+  "geo": {
+    "sectionLabel": "Top geo performance — orders & revenue",
+    "citiesTitle": "Top 10 Cities by Orders",
+    "statesTitle": "Top 10 States by Orders",
+    "cities": [
+      [
+        "1",
+        "Delhi",
+        "90",
+        "₹1,58,490"
+      ],
+      [
+        "2",
+        "Mumbai",
+        "59",
+        "₹95,478"
+      ],
+      [
+        "3",
+        "Gurgaon",
+        "56",
+        "₹91,592"
+      ],
+      [
+        "4",
+        "Bangalore",
+        "56",
+        "₹1,00,063"
+      ],
+      [
+        "5",
+        "Hyderabad",
+        "51",
+        "₹85,880"
+      ],
+      [
+        "6",
+        "Kolkata",
+        "45",
+        "₹65,430"
+      ],
+      [
+        "7",
+        "Pune",
+        "44",
+        "₹74,817"
+      ],
+      [
+        "8",
+        "Ghaziabad",
+        "32",
+        "₹53,159"
+      ],
+      [
+        "9",
+        "Noida",
+        "29",
+        "₹53,020"
+      ],
+      [
+        "10",
+        "New Delhi",
+        "26",
+        "₹37,961"
+      ]
+    ],
+    "states": [
+      [
+        "1",
+        "Maharashtra",
+        "185",
+        "₹2,99,234"
+      ],
+      [
+        "2",
+        "Delhi",
+        "161",
+        "₹2,64,917"
+      ],
+      [
+        "3",
+        "Uttar Pradesh",
+        "153",
+        "₹2,37,986"
+      ],
+      [
+        "4",
+        "Haryana",
+        "132",
+        "₹2,15,097"
+      ],
+      [
+        "5",
+        "Karnataka",
+        "88",
+        "₹1,72,899"
+      ],
+      [
+        "6",
+        "Punjab",
+        "81",
+        "₹1,33,770"
+      ],
+      [
+        "7",
+        "Gujarat",
+        "80",
+        "₹1,20,548"
+      ],
+      [
+        "8",
+        "West Bengal",
+        "66",
+        "₹1,01,771"
+      ],
+      [
+        "9",
+        "Telangana",
+        "61",
+        "₹1,00,171"
+      ],
+      [
+        "10",
+        "Rajasthan",
+        "59",
+        "₹77,627"
+      ]
+    ]
+  },
+  "timeline": {
+    "sectionLabel": "Execution roadmap — what happened each month",
+    "cards": [
+      {
+        "phase": "Week 1–4 · August",
+        "title": "Execution Sprint",
+        "items": [
+          "8–10 UGC creatives + 3 statics + 2 carousels launched",
+          "10–15 influencers onboarded (Week 2)",
+          "Google Shopping feed live — 5–6 keyword groups",
+          "WhatsApp flows built + first broadcast sent",
+          "Meta scaled to ₹12.07L spend at 5.3× ROAS"
+        ]
+      },
+      {
+        "phase": "Month 2 · September",
+        "title": "Double Budget + A/B Test",
+        "items": [
+          "Ad budget doubled — Meta + Google simultaneous scaling",
+          "New creative angles tested — hook variations, UGC 2.0",
+          "Revenue crosses ₹1 Crore for first time",
+          "CAC rises to ₹398 — managed, expected during scale",
+          "6,428 orders processed successfully"
+        ]
+      },
+      {
+        "phase": "Month 3 · October",
+        "title": "Refinement + Peak Scale",
+        "items": [
+          "Efficiency regained — CPA drops ₹398 → ₹376",
+          "Press + GMB visibility strategy deployed",
+          "ROAS stabilises at 4.66× at peak budget",
+          "7,507 orders — highest volume in 3-month sprint",
+          "₹1.31Cr revenue — target exceeded"
+        ]
+      }
+    ]
+  },
+  "insights": [
+    {
+      "icon": "📍",
+      "title": "Geo-led acquisition unlocked scale",
+      "desc": "Maharashtra, Delhi, UP, Haryana top 4 states = highest order density. Concentrating budget here first reduced CAC before expanding to tier-2 cities."
+    },
+    {
+      "icon": "📺",
+      "title": "Meta carried 80% of revenue",
+      "desc": "Meta at 5.3× ROAS drove ₹64L of ₹80L August revenue. Google and influencers layered in without cannibalising — signal architecture kept attribution clean."
+    },
+    {
+      "icon": "📈",
+      "title": "CAC rise was planned, not a problem",
+      "desc": "CPA moved ₹298 → ₹398 during aggressive scale (expected), then recovered to ₹376 in October. AOV stayed stable at ₹1,753 — margins held throughout."
+    }
+  ],
+  "footer": {
+    "lineHtml": "Case Study by <strong>Sachin Prajapati</strong> · Growth Head, My Pixel Panda · <a href=\"mailto:sachinsumer98@gmail.com\" class=\"excel-footer-mail\">sachinsumer98@gmail.com</a>",
+    "quoteHtml": "&ldquo;Marketing is not turning on ads. It is building systems that produce profitable, scalable growth.&rdquo;"
+  }
+}

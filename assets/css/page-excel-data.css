@@ -1,0 +1,986 @@
+/**
+ * Excel / performance data subpage — uses tokens from styles.css + theme.json
+ */
+.page-excel-data a.nav-logo {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.page-excel-data a.nav-logo:hover {
+  color: var(--text);
+}
+
+.page-excel-data {
+  --excel-green: #4ade80;
+  --excel-dim: #6a6a72;
+  --excel-card-elevated: var(--surface);
+  --excel-bar-muted: #2a2a2e;
+  /* Slightly larger than site body (17px) for data-heavy page readability */
+  font-size: 1.125rem;
+}
+
+.page-excel-data .excel-page-shell {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem var(--layout-pad-x, 2rem) 5rem;
+  padding-top: calc(3.5rem + 52px);
+}
+
+.page-excel-data .excel-back {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: calc(var(--btn-height, 2.75rem) - 2px);
+  padding: 0.5rem 1.125rem 0.5rem 0.875rem;
+  margin-bottom: 1.35rem;
+  font-family: var(--font-ui);
+  font-size: clamp(0.75rem, 1.15vw, 0.875rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--accent);
+  background: rgba(17, 17, 20, 0.72);
+  border: 1px solid var(--border-gold, var(--border));
+  border-radius: var(--radius-sm, 10px);
+  box-shadow: 0 1px 0 var(--border-gold-shine, transparent), 0 0 0 1px rgba(0, 0, 0, 0.2) inset;
+  backdrop-filter: blur(12px) saturate(1.1);
+  transition:
+    color 0.25s var(--ease-out, ease),
+    border-color 0.25s var(--ease-out, ease),
+    background 0.25s var(--ease-out, ease),
+    box-shadow 0.25s var(--ease-out, ease),
+    transform 0.25s var(--ease-out, ease);
+}
+
+.page-excel-data .excel-back__inner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.page-excel-data .excel-back__ic {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: -0.125rem;
+  color: var(--accent);
+  opacity: 0.92;
+  transition: transform 0.25s var(--ease-out, ease), color 0.25s var(--ease-out, ease);
+}
+
+.page-excel-data .excel-back__svg {
+  display: block;
+  width: 1.125em;
+  height: 1.125em;
+}
+
+.page-excel-data .excel-back__text {
+  line-height: 1.2;
+}
+
+.page-excel-data .excel-back:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  background: rgba(226, 188, 90, 0.08);
+  box-shadow: 0 0 24px rgba(226, 188, 90, 0.08), 0 1px 0 var(--border-gold-shine, transparent);
+  transform: translateY(-1px);
+}
+
+.page-excel-data .excel-back:hover .excel-back__ic {
+  color: var(--accent);
+  transform: translateX(-3px);
+}
+
+.page-excel-data .excel-back:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* HEADER */
+.page-excel-data .excel-cs-header {
+  border: 1px solid var(--border-gold, var(--border));
+  background: var(--card);
+  padding: 2.5rem 3rem;
+  margin-bottom: 1px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+}
+
+.page-excel-data .excel-cs-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent2));
+}
+
+.page-excel-data .excel-cs-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-excel-data .excel-cs-eyebrow::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.page-excel-data .excel-cs-title {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 4.2vw, 3.25rem);
+  line-height: 1.12;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.page-excel-data .excel-cs-title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.page-excel-data .excel-cs-sub {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  max-width: 680px;
+  line-height: 1.8;
+}
+
+.page-excel-data .excel-cs-meta {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.page-excel-data .excel-cs-meta-item {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.page-excel-data .excel-cs-meta-item strong {
+  font-family: var(--font-ui);
+  color: var(--accent);
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+  letter-spacing: 0.04em;
+}
+
+/* HERO METRICS */
+.page-excel-data .excel-hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 1px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.page-excel-data .excel-hm-box {
+  background: var(--card);
+  padding: 1.75rem 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s var(--ease-out);
+}
+
+.page-excel-data .excel-hm-box:hover {
+  background: var(--excel-card-elevated);
+}
+
+.page-excel-data .excel-hm-box::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease-out);
+}
+
+.page-excel-data .excel-hm-box:hover::after {
+  transform: scaleX(1);
+}
+
+.page-excel-data .excel-hm-label {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.page-excel-data .excel-hm-val {
+  font-family: var(--font-title);
+  font-size: clamp(2rem, 3.2vw, 2.85rem);
+  font-weight: 600;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.page-excel-data .excel-hm-change {
+  font-size: 13px;
+  color: var(--excel-green);
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-excel-data .excel-hm-change.neg {
+  color: var(--accent2);
+}
+
+.page-excel-data .excel-hm-base {
+  font-size: 13px;
+  color: var(--excel-dim);
+  margin-top: 3px;
+}
+
+/* SECTION LABEL */
+.page-excel-data .excel-sec-label {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-excel-data .excel-sec-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* GROWTH JOURNEY */
+.page-excel-data .excel-journey-section {
+  background: var(--card);
+  border: 1px solid var(--border-gold, var(--border));
+  padding: 2.5rem;
+  margin-bottom: 1px;
+  border-radius: var(--radius-sm);
+}
+
+.page-excel-data .excel-journey-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+
+.page-excel-data .excel-journey-grid::before {
+  content: '';
+  position: absolute;
+  top: 36px;
+  left: calc(12.5%);
+  right: calc(12.5%);
+  height: 2px;
+  background: var(--border);
+  z-index: 0;
+}
+
+.page-excel-data .excel-journey-step {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.page-excel-data .excel-js-dot {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-family: var(--font-title);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 2px solid var(--border);
+  transition: transform 0.3s var(--ease-out);
+  cursor: default;
+}
+
+.page-excel-data .excel-js-dot:hover {
+  transform: scale(1.08);
+}
+
+.page-excel-data .excel-step-jul .excel-js-dot {
+  background: #1a1a1c;
+  border-color: var(--excel-dim);
+  color: var(--muted);
+}
+
+.page-excel-data .excel-step-aug .excel-js-dot {
+  background: var(--accent-soft);
+  border-color: rgba(226, 188, 90, 0.45);
+  color: var(--accent);
+}
+
+.page-excel-data .excel-step-sep .excel-js-dot {
+  background: rgba(226, 188, 90, 0.12);
+  border-color: rgba(226, 188, 90, 0.65);
+  color: var(--accent);
+}
+
+.page-excel-data .excel-step-oct .excel-js-dot {
+  background: rgba(226, 188, 90, 0.18);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.page-excel-data .excel-js-month {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.4rem;
+}
+
+.page-excel-data .excel-js-rev {
+  font-family: var(--font-title);
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.page-excel-data .excel-step-oct .excel-js-rev {
+  color: var(--accent);
+}
+
+.page-excel-data .excel-js-tag {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.page-excel-data .excel-js-badge {
+  display: inline-block;
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+  margin-top: 6px;
+}
+
+.page-excel-data .excel-badge-base {
+  background: rgba(148, 148, 154, 0.12);
+  color: var(--muted);
+}
+
+.page-excel-data .excel-badge-2x {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.page-excel-data .excel-badge-cr {
+  background: rgba(74, 222, 128, 0.12);
+  color: var(--excel-green);
+}
+
+.page-excel-data .excel-badge-peak {
+  background: rgba(226, 188, 90, 0.16);
+  color: var(--accent);
+  border: 1px solid rgba(226, 188, 90, 0.28);
+}
+
+/* TWO COL */
+.page-excel-data .excel-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 1px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.page-excel-data .excel-col-panel {
+  background: var(--card);
+  padding: 2rem 2.5rem;
+}
+
+.page-excel-data .excel-channel-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-top: 1.25rem;
+}
+
+.page-excel-data .excel-ch-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.page-excel-data .excel-ch-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.page-excel-data .excel-ch-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.page-excel-data .excel-ch-val {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--font-title);
+}
+
+.page-excel-data .excel-ch-bar-wrap {
+  height: 6px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.page-excel-data .excel-ch-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-excel-data .excel-ch-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.page-excel-data .excel-channel-totals {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+}
+
+.page-excel-data .excel-channel-totals-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.page-excel-data .excel-channel-totals-row + .excel-channel-totals-row {
+  margin-top: 4px;
+}
+
+.page-excel-data .excel-channel-totals-k {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.page-excel-data .excel-channel-totals-rev {
+  font-family: var(--font-title);
+  font-size: 1.85rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.page-excel-data .excel-channel-totals-spend {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* TABLE */
+.page-excel-data .excel-metrics-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.25rem;
+}
+
+.page-excel-data .excel-metrics-table th {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.6rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-excel-data .excel-metrics-table td {
+  font-size: 14px;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(36, 36, 44, 0.6);
+  vertical-align: middle;
+}
+
+.page-excel-data .excel-metrics-table tr:last-child td {
+  border-bottom: none;
+}
+
+.page-excel-data .excel-metrics-table tr:hover td {
+  background: var(--accent-soft);
+}
+
+.page-excel-data .excel-td-month {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.page-excel-data .excel-td-rev {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.page-excel-data .excel-td-num {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.page-excel-data .excel-td-roas {
+  font-weight: 700;
+}
+
+.page-excel-data .excel-roas-high {
+  color: var(--excel-green);
+}
+
+.page-excel-data .excel-roas-mid {
+  color: var(--accent);
+}
+
+.page-excel-data .excel-roas-ok {
+  color: #a0a0a8;
+}
+
+.page-excel-data .excel-sub-dim {
+  font-size: 13px;
+  color: var(--excel-dim);
+}
+
+.page-excel-data .excel-sub-accent {
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.page-excel-data .excel-sub-green {
+  font-size: 13px;
+  color: var(--excel-green);
+}
+
+.page-excel-data .excel-table-note {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: var(--accent-soft);
+  border-left: 2px solid var(--accent);
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* CHART */
+.page-excel-data .excel-chart-section {
+  background: var(--card);
+  border: 1px solid var(--border-gold, var(--border));
+  padding: 2.5rem;
+  margin-bottom: 1px;
+  border-radius: var(--radius-sm);
+}
+
+.page-excel-data .excel-chart-wrap {
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+.page-excel-data .excel-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 18px;
+  height: 200px;
+  padding-bottom: 0;
+}
+
+.page-excel-data .excel-bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.page-excel-data .excel-bar-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  height: 100%;
+}
+
+.page-excel-data .excel-bar-group-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 3px;
+}
+
+.page-excel-data .excel-bar-fill {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+  transition: height 1.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  min-height: 0;
+}
+
+.page-excel-data .excel-bar-fill:hover .excel-bar-tip {
+  opacity: 1;
+}
+
+.page-excel-data .excel-bar-tip {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  white-space: nowrap;
+  background: var(--excel-card-elevated);
+  border: 1px solid var(--border);
+  padding: 2px 6px;
+  border-radius: 3px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.page-excel-data .excel-bar-label {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.page-excel-data .excel-chart-legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.page-excel-data .excel-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.page-excel-data .excel-legend-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+/* GEO */
+.page-excel-data .excel-geo-section {
+  background: var(--card);
+  border: 1px solid var(--border-gold, var(--border));
+  padding: 2.5rem;
+  margin-bottom: 1px;
+  border-radius: var(--radius-sm);
+}
+
+.page-excel-data .excel-geo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.25rem;
+}
+
+.page-excel-data .excel-geo-table-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.page-excel-data .excel-geo-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.page-excel-data .excel-geo-table th {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.page-excel-data .excel-geo-table td {
+  font-size: 13px;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(36, 36, 44, 0.5);
+}
+
+.page-excel-data .excel-geo-table tr:last-child td {
+  border-bottom: none;
+}
+
+.page-excel-data .excel-geo-rank {
+  color: var(--excel-dim);
+  width: 20px;
+  font-size: 13px;
+}
+
+.page-excel-data .excel-geo-name {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.page-excel-data .excel-geo-orders {
+  color: var(--accent);
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: right;
+}
+
+.page-excel-data .excel-geo-val {
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+/* TIMELINE */
+.page-excel-data .excel-timeline-section {
+  background: var(--card);
+  border: 1px solid var(--border-gold, var(--border));
+  padding: 2.5rem;
+  margin-bottom: 1px;
+  border-radius: var(--radius-sm);
+}
+
+.page-excel-data .excel-tl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-top: 1.5rem;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.page-excel-data .excel-tl-card {
+  background: var(--excel-card-elevated);
+  padding: 1.75rem;
+}
+
+.page-excel-data .excel-tl-phase {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.6rem;
+}
+
+.page-excel-data .excel-tl-title {
+  font-family: var(--font-title);
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.9rem;
+}
+
+.page-excel-data .excel-tl-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.page-excel-data .excel-tl-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.page-excel-data .excel-tl-dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+/* INSIGHTS */
+.page-excel-data .excel-insight-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  margin-bottom: 1px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.page-excel-data .excel-insight-box {
+  background: var(--card);
+  padding: 1.75rem 2rem;
+}
+
+.page-excel-data .excel-ib-icon {
+  font-size: 1.55rem;
+  margin-bottom: 0.75rem;
+}
+
+.page-excel-data .excel-ib-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+}
+
+.page-excel-data .excel-ib-desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* FOOTER */
+.page-excel-data .excel-cs-footer {
+  background: var(--card);
+  border: 1px solid var(--border-gold, var(--border));
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border-radius: var(--radius-sm);
+}
+
+.page-excel-data .excel-cs-footer p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.page-excel-data .excel-footer-mail {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.page-excel-data .excel-footer-mail:hover {
+  text-decoration: underline;
+}
+
+.page-excel-data .excel-footer-quote {
+  font-style: italic;
+  color: var(--excel-dim);
+  font-family: var(--font-body);
+}
+
+/* ANIMATIONS */
+.page-excel-data .excel-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.65s var(--ease-out), transform 0.65s var(--ease-out);
+}
+
+.page-excel-data .excel-reveal.excel-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .page-excel-data .excel-page-shell {
+    padding-top: calc(2rem + 52px);
+    padding-bottom: 4rem;
+  }
+
+  .page-excel-data .excel-hero-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-excel-data .excel-journey-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .page-excel-data .excel-journey-grid::before {
+    display: none;
+  }
+
+  .page-excel-data .excel-two-col,
+  .page-excel-data .excel-tl-grid,
+  .page-excel-data .excel-insight-row {
+    grid-template-columns: 1fr;
+  }
+
+  .page-excel-data .excel-geo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-excel-data .excel-cs-header {
+    padding: 1.75rem;
+  }
+
+  .page-excel-data .excel-cs-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

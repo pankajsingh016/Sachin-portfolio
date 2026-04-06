@@ -1,8 +1,8 @@
 {
   "meta": {
-    "purpose": "Single source for site copy and design tokens. theme-loader.js fetches this file on load.",
+    "purpose": "Single source for site copy and design tokens. assets/js/theme-loader.js fetches this file on load.",
     "version": "2.0.0",
-    "localServerNote": "Serve this folder over HTTP (e.g. python3 -m http.server) so theme.json loads; opening index.html as file:// may block fetch."
+    "localServerNote": "Serve the repository root over HTTP (e.g. python3 -m http.server) so data/theme.json loads; opening index.html as file:// may block fetch."
   },
   "site": {
     "title": "Sachin Prajapati · D2C Growth Strategist & Full-Funnel Lead",
@@ -75,7 +75,6 @@
     },
     "roleShort": "Growth Head · Full-funnel performance, analytics & multi-channel scale",
     "heroDesc": "I design and run full-funnel growth systems—Meta, Google, SEO, CRO, analytics, and retention—so CAC drops, LTV rises, and revenue compounds. Predictable pipelines, not one-off campaign spikes.",
-    "heroPhilosophy": "Marketing is not \"turning on ads.\" It is building systems that deliver profitable, repeatable growth—month after month, channel after channel.",
     "photoBadge": {
       "name": "Sachin Prajapati",
       "role": "Growth Head · My Pixel Panda · QuickFlo",
@@ -96,7 +95,7 @@
   },
   "assets": {
     "heroPhoto": {
-      "path": "file (1).jpg",
+      "path": "assets/media/images/hero-portrait.jpg",
       "alt": "Sachin Prajapati"
     }
   },
@@ -247,17 +246,19 @@
     "caseCat": "Full-Funnel · P1P2P3–H1H2H3 + HERO–HUB–HYGIENE",
     "title": "₹40L → ₹1.31 Crore in 3 months — same brand, full-funnel scale",
     "description": "A clothing brand scaling from ₹47.48L/month to ₹1.31Cr/month using the P1P2P3–H1H2H3 framework, geo-led acquisition strategy, cross-channel signal architecture, and a systematic creative expansion plan.",
-    "caseStudyUrl": "case-study-40l-to-131cr.html",
+    "caseStudyUrl": "pages/case-study-40l-to-131cr.html",
     "caseStudyLinkLabel": "Read full case study",
     "dashboardProof": {
-      "pdfUrl": "proof-shopify-dashboard.pdf",
+      "pdfUrl": "assets/media/documents/proof-shopify-dashboard.pdf",
       "pdfEmbedHash": "toolbar=0&navpanes=0&view=FitW",
       "eyebrow": "Verification",
       "title": "Shopify analytics — dashboard capture",
       "urlBar": "admin.shopify.com/store/···/analytics",
       "caption": "Gulmohar Jaipur · Full-length scrolling export — raw numbers behind the ₹1.31Cr peak narrative.",
       "scrollHint": "Scroll inside the frame — it’s a long capture",
-      "openLabel": "Open full PDF"
+      "openLabel": "Open full PDF",
+      "dataSpreadsheetUrl": "pages/excel_data.html",
+      "dataSpreadsheetLabel": "Strategy Break Down"
     },
     "blocks": [
       {
