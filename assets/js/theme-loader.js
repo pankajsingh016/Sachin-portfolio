@@ -202,11 +202,13 @@
   function applyNavigation(t) {
     const nav = t.navigation;
     if (!nav || !nav.items) return;
-    const links = document.querySelectorAll('.nav-links a');
-    nav.items.forEach((item, i) => {
-      if (!links[i]) return;
-      if (item.label != null) links[i].textContent = item.label;
-      if (item.href != null) links[i].href = item.href;
+    document.querySelectorAll('.nav-links').forEach((group) => {
+      const links = group.querySelectorAll('a');
+      nav.items.forEach((item, i) => {
+        if (!links[i]) return;
+        if (item.label != null) links[i].textContent = item.label;
+        if (item.href != null) links[i].href = item.href;
+      });
     });
   }
 
@@ -657,15 +659,17 @@
   function applyPortfolioSubpageNav(t) {
     const nav = t.navigation;
     if (!nav || !nav.items) return;
-    const links = document.querySelectorAll('.nav-links a');
-    nav.items.forEach((item, i) => {
-      if (!links[i]) return;
-      if (item.label != null) links[i].textContent = item.label;
-      const hash =
-        item.href != null && String(item.href).startsWith('#')
-          ? String(item.href)
-          : '';
-      links[i].href = '../index.html' + hash;
+    document.querySelectorAll('.nav-links').forEach((group) => {
+      const links = group.querySelectorAll('a');
+      nav.items.forEach((item, i) => {
+        if (!links[i]) return;
+        if (item.label != null) links[i].textContent = item.label;
+        const hash =
+          item.href != null && String(item.href).startsWith('#')
+            ? String(item.href)
+            : '';
+        links[i].href = '../index.html' + hash;
+      });
     });
   }
 

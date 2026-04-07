@@ -19,7 +19,14 @@
 <nav>
   <div class="nav-inner">
     <a href="../index.html" class="nav-logo">Sachin Prajapati</a>
-    <div class="nav-links">
+    <button type="button" class="nav-drawer-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-nav-drawer" aria-label="Open menu">
+      <span class="nav-drawer-icon" aria-hidden="true">
+        <span class="nav-drawer-icon__bar"></span>
+        <span class="nav-drawer-icon__bar"></span>
+        <span class="nav-drawer-icon__bar"></span>
+      </span>
+    </button>
+    <div class="nav-links nav-links--bar">
       <a href="../index.html#tools">Tools</a>
       <a href="../index.html#cases">Case Studies</a>
       <a href="../index.html#frameworks">Frameworks</a>
@@ -29,9 +36,29 @@
   </div>
 </nav>
 
+<div class="nav-drawer" id="site-nav-drawer" hidden>
+  <div class="nav-drawer__backdrop" data-nav-drawer-close tabindex="-1"></div>
+  <div class="nav-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="nav-drawer-title">
+    <div class="nav-drawer__head">
+      <span class="nav-drawer__title" id="nav-drawer-title">Menu</span>
+      <button type="button" class="nav-drawer__close" data-nav-drawer-close aria-label="Close menu"><span aria-hidden="true">×</span></button>
+    </div>
+    <nav class="nav-drawer__nav" aria-label="Site sections">
+      <div class="nav-links nav-links--drawer">
+        <a href="../index.html#tools">Tools</a>
+        <a href="../index.html#cases">Case Studies</a>
+        <a href="../index.html#frameworks">Frameworks</a>
+        <a href="../index.html#process">Process</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</div>
+
 <main class="excel-page-shell" id="excel-page-root" aria-busy="true"></main>
 
 <script src="../assets/js/excel-page.js"></script>
 <script src="../assets/js/theme-loader.js"></script>
+<script src="../assets/js/main.js" defer></script>
 </body>
 </html>
