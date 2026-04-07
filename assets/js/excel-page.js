@@ -199,11 +199,12 @@
       '<div class="excel-sec-label">' +
       escapeHtml(mt.sectionLabel) +
       '</div>' +
+      '<div class="excel-table-scroll">' +
       '<table class="excel-metrics-table"><thead><tr>' +
       cols +
       '</tr></thead><tbody>' +
       body +
-      '</tbody></table>' +
+      '</tbody></table></div>' +
       '<div class="excel-table-note">' +
       escapeHtml(mt.note) +
       '</div></div>'
@@ -304,12 +305,13 @@
       '<div class="excel-geo-table-title">' +
       escapeHtml(title) +
       '</div>' +
+      '<div class="excel-table-scroll excel-table-scroll--geo">' +
       '<table class="excel-geo-table">' +
       '<tr><th>#</th><th>' +
       (title.indexOf('Cities') >= 0 ? 'City' : 'State') +
       '</th><th style="text-align:right">Orders</th><th style="text-align:right">Revenue</th></tr>' +
       body +
-      '</table></div>'
+      '</table></div></div>'
     );
   }
 

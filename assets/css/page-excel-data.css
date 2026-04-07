@@ -21,11 +21,25 @@
   word-wrap: break-word;
 }
 
+/* Global styles use overflow-x: clip — re-enable horizontal scroll so tables aren’t trimmed */
+html:has(body.page-excel-data) {
+  overflow-x: auto;
+}
+
+body.page-excel-data {
+  overflow-x: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 .page-excel-data .excel-page-shell {
   max-width: 1100px;
   margin: 0 auto;
   padding: 3rem var(--layout-pad-x, 2rem) 5rem;
   padding-top: calc(3.5rem + 52px);
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
 }
 
 .page-excel-data .excel-back {
@@ -112,6 +126,8 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-sm);
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .page-excel-data .excel-cs-header::before {
@@ -152,6 +168,8 @@
   font-weight: 600;
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .page-excel-data .excel-cs-title em {
@@ -278,12 +296,17 @@
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .page-excel-data .excel-sec-label::after {
   content: '';
   flex: 1;
+  min-width: 2rem;
   height: 1px;
   background: var(--border);
 }
@@ -428,7 +451,7 @@
 /* TWO COL */
 .page-excel-data .excel-two-col {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 1px;
   background: var(--border);
   margin-bottom: 1px;
@@ -439,6 +462,7 @@
 .page-excel-data .excel-col-panel {
   background: var(--card);
   padding: 2rem 2.5rem;
+  min-width: 0;
 }
 
 .page-excel-data .excel-channel-bars {
@@ -527,10 +551,34 @@
 }
 
 /* TABLE */
+.page-excel-data .excel-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 1.25rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(226, 188, 90, 0.35) transparent;
+}
+
+.page-excel-data .excel-table-scroll--geo {
+  margin-top: 0;
+}
+
 .page-excel-data .excel-metrics-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 1.25rem;
+}
+
+/* Wide min-width so columns stay readable; parent .excel-table-scroll scrolls horizontally on narrow viewports */
+.page-excel-data .excel-table-scroll .excel-metrics-table {
+  margin-top: 0;
+  min-width: 36rem;
+}
+
+.page-excel-data .excel-table-scroll--geo .excel-geo-table {
+  width: 100%;
 }
 
 .page-excel-data .excel-metrics-table th {
@@ -543,6 +591,7 @@
   padding: 0.6rem 1rem;
   text-align: left;
   border-bottom: 1px solid var(--border);
+  overflow-wrap: anywhere;
 }
 
 .page-excel-data .excel-metrics-table td {
@@ -550,6 +599,8 @@
   padding: 0.9rem 1rem;
   border-bottom: 1px solid rgba(36, 36, 44, 0.6);
   vertical-align: middle;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .page-excel-data .excel-metrics-table tr:last-child td {
@@ -618,6 +669,10 @@
   color: var(--muted);
   line-height: 1.7;
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* CHART */
@@ -632,6 +687,11 @@
 .page-excel-data .excel-chart-wrap {
   margin-top: 1.5rem;
   position: relative;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(226, 188, 90, 0.35) transparent;
 }
 
 .page-excel-data .excel-chart-bars {
@@ -640,6 +700,8 @@
   gap: 18px;
   height: 200px;
   padding-bottom: 0;
+  min-width: min(100%, 520px);
+  padding-inline: 2px;
 }
 
 .page-excel-data .excel-bar-group {
@@ -778,6 +840,7 @@
   font-size: 13px;
   padding: 0.6rem 0;
   border-bottom: 1px solid rgba(36, 36, 44, 0.5);
+  overflow-wrap: anywhere;
 }
 
 .page-excel-data .excel-geo-table tr:last-child td {
@@ -961,6 +1024,8 @@
   .page-excel-data .excel-page-shell {
     padding-top: calc(2rem + 52px);
     padding-bottom: 4rem;
+    padding-left: max(1rem, env(safe-area-inset-left, 0px));
+    padding-right: max(1rem, env(safe-area-inset-right, 0px));
   }
 
   .page-excel-data .excel-hero-metrics {
@@ -986,11 +1051,51 @@
   }
 
   .page-excel-data .excel-cs-header {
-    padding: 1.75rem;
+    padding: 1.5rem 1.1rem;
+  }
+
+  .page-excel-data .excel-sec-label::after {
+    display: none;
+  }
+
+  .page-excel-data .excel-journey-section,
+  .page-excel-data .excel-chart-section,
+  .page-excel-data .excel-geo-section,
+  .page-excel-data .excel-timeline-section {
+    padding: 1.5rem 1.1rem;
+  }
+
+  .page-excel-data .excel-col-panel,
+  .page-excel-data .excel-insight-box {
+    padding: 1.35rem 1rem;
+  }
+
+  .page-excel-data .excel-metrics-table th,
+  .page-excel-data .excel-metrics-table td {
+    padding: 0.55rem 0.45rem;
+    font-size: 12px;
+  }
+
+  .page-excel-data .excel-metrics-table th {
+    letter-spacing: 0.08em;
+  }
+
+  .page-excel-data .excel-td-rev {
+    font-size: 1rem;
+  }
+
+  .page-excel-data .excel-chart-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .page-excel-data .excel-chart-bars {
+    gap: 10px;
+    min-width: 420px;
   }
 
   .page-excel-data .excel-cs-footer {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1.35rem 1.1rem;
   }
 }
