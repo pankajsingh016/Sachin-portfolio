@@ -122,6 +122,10 @@
     if (!b) return;
     const navLogo = document.querySelector('.nav-logo');
     if (navLogo && b.navLogo != null) navLogo.textContent = b.navLogo;
+    const drawerName = document.querySelector('.nav-drawer__name');
+    if (drawerName && b.navLogo != null) drawerName.textContent = b.navLogo;
+    const drawerTag = document.querySelector('.nav-drawer__tagline');
+    if (drawerTag && b.roleShort != null) drawerTag.textContent = b.roleShort;
     const h1 = document.querySelector('.hero h1');
     if (h1 && b.heroH1) {
       const h = b.heroH1;
@@ -678,6 +682,14 @@
     const logo = document.querySelector('.nav-logo');
     if (logo && theme.brand && theme.brand.navLogo != null) {
       logo.textContent = theme.brand.navLogo;
+    }
+    const drawerName = document.querySelector('.nav-drawer__name');
+    if (drawerName && theme.brand && theme.brand.navLogo != null) {
+      drawerName.textContent = theme.brand.navLogo;
+    }
+    const drawerTag = document.querySelector('.nav-drawer__tagline');
+    if (drawerTag && theme.brand && theme.brand.roleShort != null) {
+      drawerTag.textContent = theme.brand.roleShort;
     }
     const photo = theme.assets && theme.assets.heroPhoto;
     if (photo && photo.path) {

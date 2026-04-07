@@ -38,12 +38,19 @@
 
 <div class="nav-drawer" id="site-nav-drawer" hidden>
   <div class="nav-drawer__backdrop" data-nav-drawer-close tabindex="-1"></div>
-  <div class="nav-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="nav-drawer-title">
-    <div class="nav-drawer__head">
-      <span class="nav-drawer__title" id="nav-drawer-title">Menu</span>
-      <button type="button" class="nav-drawer__close" data-nav-drawer-close aria-label="Close menu"><span aria-hidden="true">×</span></button>
-    </div>
-    <nav class="nav-drawer__nav" aria-label="Site sections">
+  <div class="nav-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="nav-drawer-brand-name">
+    <header class="nav-drawer__masthead">
+      <div class="nav-drawer__brand">
+        <p class="nav-drawer__eyebrow">Portfolio</p>
+        <h2 class="nav-drawer__name" id="nav-drawer-brand-name">Sachin Prajapati</h2>
+        <p class="nav-drawer__tagline">Growth Head · Full-funnel performance, analytics &amp; multi-channel scale</p>
+      </div>
+      <button type="button" class="nav-drawer__close" data-nav-drawer-close aria-label="Close menu">
+        <svg class="nav-drawer__close-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </header>
+    <p class="nav-drawer__section-label" id="nav-drawer-nav-label">Explore</p>
+    <nav class="nav-drawer__nav" aria-labelledby="nav-drawer-nav-label">
       <div class="nav-links nav-links--drawer">
         <a href="../index.html#tools">Tools</a>
         <a href="../index.html#cases">Case Studies</a>
