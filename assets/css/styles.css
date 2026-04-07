@@ -282,6 +282,30 @@
     transition: border-color 0.25s, color 0.25s, transform 0.25s var(--ease-out);
   }
   .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  /* Hero LinkedIn — stronger frame so it reads against the glow/grid */
+  .hero-btns .btn-secondary {
+    color: var(--text);
+    background: rgba(12, 12, 14, 0.72);
+    border: 1px solid var(--border-gold);
+    box-shadow:
+      inset 0 1px 0 var(--border-gold-shine),
+      0 0 0 1px rgba(226, 188, 90, 0.06),
+      var(--border-gold-glow);
+    transition:
+      border-color 0.25s,
+      color 0.25s,
+      transform 0.25s var(--ease-out),
+      box-shadow 0.25s var(--ease-out);
+  }
+  .hero-btns .btn-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 250, 224, 0.14),
+      0 0 0 1px rgba(226, 188, 90, 0.12),
+      0 10px 36px rgba(226, 188, 90, 0.18);
+    transform: translateY(-2px);
+  }
   .hero-right {
     position: relative;
     overflow: hidden;
@@ -621,7 +645,7 @@
     background: #25d366;
   }
 
-  /* BRAND RIBBON — full-bleed marquee below Stack */
+  /* BRAND RIBBON — headline + full-bleed marquee (portfolio-style logo strip) */
   .brand-ribbon-section {
     width: 100vw;
     max-width: 100vw;
@@ -631,18 +655,80 @@
     overflow: hidden;
     border-bottom: 1px solid var(--border-gold);
     background:
-      linear-gradient(90deg, rgba(7, 7, 8, 0.97) 0%, transparent 6%, transparent 94%, rgba(7, 7, 8, 0.97) 100%),
-      linear-gradient(180deg, rgba(226, 188, 90, 0.04) 0%, transparent 45%),
-      var(--card);
-    box-shadow: inset 0 1px 0 var(--border-gold-shine);
+      radial-gradient(ellipse 80% 55% at 50% 0%, rgba(226, 188, 90, 0.09), transparent 55%),
+      linear-gradient(180deg, rgba(14, 14, 17, 0.98) 0%, var(--card) 38%, #0c0c0e 100%);
+    box-shadow:
+      inset 0 1px 0 var(--border-gold-shine),
+      0 12px 40px -20px rgba(0, 0, 0, 0.45);
+  }
+  .brand-ribbon__inner {
+    max-width: var(--layout-max);
+    margin: 0 auto;
+    padding: clamp(1.75rem, 4vw, 2.35rem) var(--layout-pad-x) clamp(1.15rem, 3vw, 1.5rem);
+    text-align: center;
+  }
+  .brand-ribbon__header {
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+  .brand-ribbon__eyebrow {
+    font-family: var(--font-ui);
+    font-size: clamp(0.625rem, 1vw, 0.6875rem);
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 0.65rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.85rem;
+  }
+  .brand-ribbon__eyebrow::before,
+  .brand-ribbon__eyebrow::after {
+    content: '';
+    width: clamp(1.5rem, 5vw, 2.75rem);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(226, 188, 90, 0.45), transparent);
+    border-radius: 1px;
+  }
+  .brand-ribbon__title {
+    font-family: var(--font-title);
+    font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.22;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.55rem;
+  }
+  .brand-ribbon__title em {
+    font-style: italic;
+    font-weight: 600;
+    color: var(--accent);
+  }
+  .brand-ribbon__sub {
+    font-size: clamp(0.8125rem, 1.2vw, 0.9375rem);
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+    font-weight: 500;
+    max-width: 32rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .brand-ribbon__strip {
+    position: relative;
+    margin-top: 0.15rem;
+    padding: 0;
   }
   .brand-ribbon {
     position: relative;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.15) 0%, transparent 100%);
   }
   .brand-ribbon__viewport {
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+    mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
   }
   .brand-ribbon__track {
     display: flex;
@@ -656,7 +742,7 @@
     gap: clamp(2.25rem, 5.5vw, 4.5rem);
     list-style: none;
     margin: 0;
-    padding: 1.1rem clamp(1.5rem, 4vw, 3rem);
+    padding: 1.25rem clamp(1.5rem, 4vw, 3rem) 1.45rem;
     flex-shrink: 0;
   }
   .brand-ribbon__list li {
@@ -706,7 +792,7 @@
     .brand-ribbon__list {
       justify-content: center;
       flex-wrap: wrap;
-      padding: 1rem var(--layout-pad-x);
+      padding: 1rem var(--layout-pad-x) 1.25rem;
       gap: 1.5rem 2.5rem;
     }
   }
