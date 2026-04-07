@@ -14,13 +14,6 @@
 <nav>
   <div class="nav-inner">
     <span class="nav-logo">Sachin Prajapati</span>
-    <button type="button" class="nav-drawer-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-nav-drawer" aria-label="Open menu">
-      <span class="nav-drawer-icon" aria-hidden="true">
-        <span class="nav-drawer-icon__bar"></span>
-        <span class="nav-drawer-icon__bar"></span>
-        <span class="nav-drawer-icon__bar"></span>
-      </span>
-    </button>
     <div class="nav-links nav-links--bar">
       <a href="#tools">Tools</a>
       <a href="#cases">Case Studies</a>
@@ -28,32 +21,45 @@
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </div>
+    <button type="button" class="nav-drawer-toggle" id="site-nav-toggle" aria-expanded="false" aria-controls="site-nav-drawer" aria-label="Open site menu">
+      <span class="nav-drawer-icon" aria-hidden="true">
+        <span class="nav-drawer-icon__bar"></span>
+        <span class="nav-drawer-icon__bar"></span>
+        <span class="nav-drawer-icon__bar"></span>
+      </span>
+    </button>
   </div>
 </nav>
 
 <div class="nav-drawer" id="site-nav-drawer" hidden>
   <div class="nav-drawer__backdrop" data-nav-drawer-close tabindex="-1"></div>
   <div class="nav-drawer__panel" role="dialog" aria-modal="true" aria-labelledby="nav-drawer-brand-name">
-    <header class="nav-drawer__masthead">
-      <div class="nav-drawer__brand">
-        <p class="nav-drawer__eyebrow">Portfolio</p>
-        <h2 class="nav-drawer__name" id="nav-drawer-brand-name">Sachin Prajapati</h2>
-        <p class="nav-drawer__tagline">Growth Head · Full-funnel performance, analytics &amp; multi-channel scale</p>
+    <div class="nav-drawer__surface">
+      <header class="nav-drawer__masthead">
+        <div class="nav-drawer__masthead-bar">
+          <span class="nav-drawer__eyebrow">Navigation</span>
+          <button type="button" class="nav-drawer__close" data-nav-drawer-close aria-label="Close menu">
+            <svg class="nav-drawer__close-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2.25" stroke-linecap="round"/></svg>
+          </button>
+        </div>
+        <div class="nav-drawer__brand">
+          <h2 class="nav-drawer__name" id="nav-drawer-brand-name">Sachin Prajapati</h2>
+          <p class="nav-drawer__subtitle">Growth &amp; full-funnel performance</p>
+        </div>
+      </header>
+      <div class="nav-drawer__list-head">
+        <span class="nav-drawer__list-label">Sections</span>
       </div>
-      <button type="button" class="nav-drawer__close" data-nav-drawer-close aria-label="Close menu">
-        <svg class="nav-drawer__close-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-    </header>
-    <p class="nav-drawer__section-label" id="nav-drawer-nav-label">Explore</p>
-    <nav class="nav-drawer__nav" aria-labelledby="nav-drawer-nav-label">
-      <div class="nav-links nav-links--drawer">
-        <a href="#tools">Tools</a>
-        <a href="#cases">Case Studies</a>
-        <a href="#frameworks">Frameworks</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+      <nav class="nav-drawer__nav" aria-label="Primary navigation">
+        <div class="nav-links nav-links--drawer">
+          <a href="#tools">Tools</a>
+          <a href="#cases">Case Studies</a>
+          <a href="#frameworks">Frameworks</a>
+          <a href="#process">Process</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
   </div>
 </div>
 

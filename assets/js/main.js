@@ -91,8 +91,6 @@
     var drawer = document.getElementById('site-nav-drawer');
     if (!toggle || !drawer) return;
 
-    var closers = drawer.querySelectorAll('[data-nav-drawer-close]');
-    var drawerAnchors = drawer.querySelectorAll('.nav-links--drawer a');
     var mq = window.matchMedia('(max-width: 980px)');
 
     function fullyClose() {
@@ -144,15 +142,23 @@
       }
     });
 
-    closers.forEach(function (el) {
-      el.addEventListener('click', closeDrawer);
-    });
-
-    drawerAnchors.forEach(function (a) {
-      a.addEventListener('click', function () {
-        closeDrawer();
-      });
-    });
+    /* Delegated: reliably closes from backdrop, X button, and any nested hit target */
+    drawer.addEventListener(
+      'click',
+      function (e) {
+        var closer = e.target.closest('[data-nav-drawer-close]');
+        if (closer && drawer.contains(closer)) {
+          e.preventDefault();
+          closeDrawer();
+          return;
+        }
+        var navA = e.target.closest('.nav-links--drawer a');
+        if (navA && drawer.contains(navA)) {
+          closeDrawer();
+        }
+      },
+      false
+    );
 
     document.addEventListener('keydown', function (e) {
       if (e.key !== 'Escape') return;
