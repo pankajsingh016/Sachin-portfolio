@@ -205,6 +205,8 @@
       );
       const pdfPhaseMs = !isNaN(rawPdf) && rawPdf >= 2000 ? rawPdf : 10000;
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      /* Phones only — tablets/desktop keep embedded PDF + PDF-first rotation */
+      const narrowUi = window.matchMedia('(max-width: 480px)');
 
       const videoBar =
         root.dataset.videoUrlBar ||
@@ -336,10 +338,14 @@
       });
 
       if (reduceMotion) {
-        applyVisualIndex(1);
+        applyVisualIndex(narrowUi.matches ? 0 : 1);
         return;
       }
-      beginPdfPhase();
+      if (narrowUi.matches) {
+        beginVideoPhase();
+      } else {
+        beginPdfPhase();
+      }
     });
   }
 

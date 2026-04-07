@@ -368,7 +368,7 @@
         : 'toolbar=0&navpanes=0&view=FitW';
     const pdfSrc = pdfBase + '#' + embedHash;
     const iframe = wrap.querySelector('.feat-proof-frame');
-    const openA = wrap.querySelector('.feat-proof-open');
+    const pdfHrefPlain = dp.pdfUrl.split('#')[0];
     if (iframe) {
       iframe.src = pdfSrc;
       iframe.title =
@@ -376,10 +376,10 @@
           ? dp.frameTitle
           : 'Shopify analytics dashboard export (PDF)';
     }
-    if (openA) {
-      openA.href = dp.pdfUrl.split('#')[0];
-      if (dp.openLabel != null) openA.textContent = dp.openLabel;
-    }
+    wrap.querySelectorAll('a.feat-proof-open').forEach(function (a) {
+      a.href = pdfHrefPlain;
+      if (dp.openLabel != null) a.textContent = dp.openLabel;
+    });
     const dataA = wrap.querySelector('.feat-proof-data');
     if (dataA) {
       if (dp.dataSpreadsheetUrl) {
@@ -394,17 +394,10 @@
     const title = wrap.querySelector('.feat-proof-title');
     const caption = wrap.querySelector('.feat-proof-caption');
     const urlBar = wrap.querySelector('.feat-proof-url');
-    const hint = wrap.querySelector('.feat-proof-hint');
     if (eyebrow && dp.eyebrow != null) eyebrow.textContent = dp.eyebrow;
     if (title && dp.title != null) title.textContent = dp.title;
     if (caption && dp.caption != null) caption.textContent = dp.caption;
     if (urlBar && dp.urlBar != null) urlBar.textContent = dp.urlBar;
-    if (hint && dp.scrollHint != null) {
-      const ic = hint.querySelector('svg.feat-proof-hint-ic');
-      hint.replaceChildren();
-      if (ic) hint.appendChild(ic);
-      hint.appendChild(document.createTextNode(dp.scrollHint));
-    }
     const dock = wrap.querySelector('[data-proof-carousel]');
     if (dock) {
       if (dp.videoUrlBar != null) dock.dataset.videoUrlBar = String(dp.videoUrlBar);

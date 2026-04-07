@@ -1656,30 +1656,51 @@
     border: 0;
     background: #111114;
   }
+  .feat-proof-pdf-fallback {
+    display: none;
+  }
+  .feat-proof-pdf-fallback-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.85rem;
+    max-width: 22rem;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .feat-proof-pdf-fallback-ic {
+    display: block;
+    color: var(--accent);
+    opacity: 0.9;
+  }
+  .feat-proof-pdf-fallback-kicker {
+    font-family: var(--font-ui);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  .feat-proof-pdf-fallback-copy {
+    font-size: clamp(0.8125rem, 2.8vw, 0.875rem);
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+    font-weight: 500;
+  }
+  .feat-proof-pdf-fallback-cta {
+    margin-top: 0.35rem;
+  }
   .feat-proof-actions {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     gap: 0.75rem 1rem;
     padding: 0 1.5rem 1.35rem;
-  }
-  .feat-proof-hint {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: clamp(0.625rem, 0.9vw, 0.6875rem);
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    font-weight: 500;
-    max-width: 100%;
-    overflow-wrap: break-word;
-  }
-  .feat-proof-hint-ic {
-    flex-shrink: 0;
-    color: var(--accent);
-    opacity: 0.9;
   }
   .feat-proof-buttons {
     display: flex;
@@ -2640,12 +2661,6 @@
       padding-right: 0.15rem;
       hyphens: auto;
     }
-    .feat-proof-video,
-    .feat-proof-frame {
-      min-height: 280px;
-      height: clamp(300px, 56dvh, 520px);
-      max-height: min(78dvh, 580px);
-    }
     .feat-proof-actions {
       padding-left: 1rem;
       padding-right: 1rem;
@@ -2654,6 +2669,26 @@
       font-size: clamp(2.75rem, 12vw, 3.5rem);
       top: -1.15rem;
       left: 0.5rem;
+    }
+  }
+
+  /* Proof PDF: phone-only fallback (iframe embed kept for tablet + desktop) */
+  @media (max-width: 480px) {
+    .feat-proof-slide--pdf .feat-proof-frame {
+      display: none !important;
+    }
+    .feat-proof-pdf-fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: min(300px, 48dvh);
+      padding: 1.35rem 1.1rem 1.5rem;
+      box-sizing: border-box;
+      background: linear-gradient(165deg, rgba(12, 12, 15, 0.98) 0%, rgba(7, 7, 8, 0.99) 100%);
+      border-top: 1px solid rgba(226, 188, 90, 0.12);
+    }
+    .feat-proof-slide--pdf {
+      min-height: 0;
     }
   }
 
