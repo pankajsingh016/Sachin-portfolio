@@ -17,6 +17,8 @@
   --excel-bar-muted: #2a2a2e;
   /* Slightly larger than site body (17px) for data-heavy page readability */
   font-size: 1.125rem;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .page-excel-data .excel-page-shell {
@@ -688,7 +690,11 @@
   font-size: 13px;
   font-weight: 700;
   color: var(--text);
-  white-space: nowrap;
+  white-space: normal;
+  text-align: center;
+  max-width: min(14rem, 72vw);
+  overflow-wrap: anywhere;
+  line-height: 1.25;
   background: var(--excel-card-elevated);
   border: 1px solid var(--border);
   padding: 2px 6px;
@@ -842,6 +848,7 @@
   font-size: 1.125rem;
   font-weight: 600;
   margin-bottom: 0.9rem;
+  overflow-wrap: anywhere;
 }
 
 .page-excel-data .excel-tl-items {
@@ -857,6 +864,8 @@
   font-size: 13px;
   color: var(--muted);
   line-height: 1.5;
+  min-width: 0;
+  overflow-wrap: break-word;
 }
 
 .page-excel-data .excel-tl-dot {
@@ -900,6 +909,7 @@
   font-size: 13px;
   color: var(--muted);
   line-height: 1.75;
+  overflow-wrap: break-word;
 }
 
 /* FOOTER */

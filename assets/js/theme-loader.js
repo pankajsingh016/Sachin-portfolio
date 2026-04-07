@@ -396,6 +396,23 @@
       if (ic) hint.appendChild(ic);
       hint.appendChild(document.createTextNode(dp.scrollHint));
     }
+    const dock = wrap.querySelector('[data-proof-carousel]');
+    if (dock) {
+      if (dp.videoUrlBar != null) dock.dataset.videoUrlBar = String(dp.videoUrlBar);
+      if (dp.urlBar != null) dock.dataset.pdfUrlBar = String(dp.urlBar);
+      const tab0 = dock.querySelector('[data-carousel-tab="0"]');
+      const tab1 = dock.querySelector('[data-carousel-tab="1"]');
+      if (tab0 && dp.tabVideo != null) tab0.textContent = dp.tabVideo;
+      if (tab1 && dp.tabPdf != null) tab1.textContent = dp.tabPdf;
+      const vid = wrap.querySelector('.feat-proof-slide--video video');
+      if (vid && dp.videoUrl != null && String(dp.videoUrl).trim() !== '') {
+        vid.src = String(dp.videoUrl);
+      }
+      if (dp.pdfPhaseMs != null) {
+        const n = parseInt(String(dp.pdfPhaseMs), 10);
+        if (!isNaN(n) && n >= 2000) dock.dataset.pdfPhaseMs = String(n);
+      }
+    }
   }
 
   function applyMoreWins(t) {
@@ -622,6 +639,11 @@
     if (quote && f.quote != null) quote.textContent = f.quote;
   }
 
+  function markThemeReady() {
+    document.documentElement.classList.add('theme-ready');
+    window.dispatchEvent(new CustomEvent('portfolio:theme-ready'));
+  }
+
   function themeJsonUrl() {
     if (
       typeof window.__THEME_JSON_PATH__ === 'string' &&
@@ -680,7 +702,7 @@
         console.error('[excel-data]', e);
       })
       .finally(() => {
-        document.documentElement.classList.add('theme-ready');
+        markThemeReady();
       });
   }
 
@@ -709,12 +731,12 @@
     applyCtaContact(theme);
     applyContactLabels(theme);
     applyFooter(theme);
-    document.documentElement.classList.add('theme-ready');
+    markThemeReady();
   }
 
   function showThemeError(msg) {
     console.error('[theme]', msg);
-    document.documentElement.classList.add('theme-ready');
+    markThemeReady();
   }
 
   function init() {
