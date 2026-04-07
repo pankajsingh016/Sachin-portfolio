@@ -61,8 +61,8 @@
   }
   ::selection { background: var(--accent-soft); color: var(--text); }
 
-  /* NAV */
-  nav {
+  /* NAV — must not use bare `nav {}` (drawer contains <nav class="nav-drawer__nav">) */
+  nav.site-nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -122,9 +122,9 @@
   .nav-links a:hover { color: var(--text); }
   .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
 
-  /* Mobile menu — hamburger opens drawer at every viewport (desktop keeps bar links + menu) */
+  /* Mobile menu — hamburger + drawer only ≤980px (desktop uses bar links) */
   .nav-drawer-toggle {
-    display: inline-flex;
+    display: none;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
@@ -2483,6 +2483,7 @@
       display: none;
     }
     .nav-drawer-toggle {
+      display: inline-flex;
       margin-left: auto;
     }
     .section-kicker { margin-bottom: 1.25rem; }
