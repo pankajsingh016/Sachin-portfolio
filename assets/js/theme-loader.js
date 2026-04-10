@@ -356,30 +356,12 @@
   function applyDashboardProof(card, dp) {
     const wrap = card.querySelector('.feat-proof');
     if (!wrap) return;
-    if (!dp || !dp.pdfUrl) {
+    const hasVideo = dp && dp.videoUrl != null && String(dp.videoUrl).trim() !== '';
+    if (!hasVideo) {
       wrap.setAttribute('hidden', '');
       return;
     }
     wrap.removeAttribute('hidden');
-    const pdfBase = String(dp.pdfUrl).split('#')[0];
-    const embedHash =
-      dp.pdfEmbedHash != null && String(dp.pdfEmbedHash).trim() !== ''
-        ? String(dp.pdfEmbedHash).replace(/^\#/, '')
-        : 'toolbar=0&navpanes=0&view=FitW';
-    const pdfSrc = pdfBase + '#' + embedHash;
-    const iframe = wrap.querySelector('.feat-proof-frame');
-    const pdfHrefPlain = dp.pdfUrl.split('#')[0];
-    if (iframe) {
-      iframe.src = pdfSrc;
-      iframe.title =
-        dp.frameTitle != null
-          ? dp.frameTitle
-          : 'Shopify analytics dashboard export (PDF)';
-    }
-    wrap.querySelectorAll('a.feat-proof-open').forEach(function (a) {
-      a.href = pdfHrefPlain;
-      if (dp.openLabel != null) a.textContent = dp.openLabel;
-    });
     const dataA = wrap.querySelector('.feat-proof-data');
     if (dataA) {
       if (dp.dataSpreadsheetUrl) {
@@ -388,32 +370,43 @@
       } else {
         dataA.setAttribute('hidden', '');
       }
-      if (dp.dataSpreadsheetLabel != null) dataA.textContent = dp.dataSpreadsheetLabel;
+      if (dp.dataSpreadsheetLabel != null) {
+        const lab = dataA.querySelector('.feat-proof-data__label');
+        if (lab) lab.textContent = dp.dataSpreadsheetLabel;
+        else dataA.textContent = dp.dataSpreadsheetLabel;
+      }
+      const hintEl = dataA.querySelector('.feat-proof-data__hint');
+      if (hintEl && dp.dataSpreadsheetHint != null) hintEl.textContent = dp.dataSpreadsheetHint;
+      const tagEl = dataA.querySelector('.feat-proof-data__tag');
+      if (tagEl) {
+        if (dp.dataSpreadsheetTag != null && String(dp.dataSpreadsheetTag).trim() !== '') {
+          tagEl.textContent = dp.dataSpreadsheetTag;
+          tagEl.removeAttribute('hidden');
+        } else {
+          tagEl.setAttribute('hidden', '');
+        }
+      }
+      const ctaLbl = dataA.querySelector('.feat-proof-data__cta-text');
+      if (ctaLbl && dp.dataSpreadsheetCtaLabel != null) ctaLbl.textContent = dp.dataSpreadsheetCtaLabel;
+      const a11y = [dp.dataSpreadsheetLabel, dp.dataSpreadsheetHint].filter(Boolean).join('. ');
+      if (a11y) dataA.setAttribute('aria-label', a11y);
     }
     const eyebrow = wrap.querySelector('.feat-proof-eyebrow');
     const title = wrap.querySelector('.feat-proof-title');
-    const caption = wrap.querySelector('.feat-proof-caption');
     const urlBar = wrap.querySelector('.feat-proof-url');
     if (eyebrow && dp.eyebrow != null) eyebrow.textContent = dp.eyebrow;
     if (title && dp.title != null) title.textContent = dp.title;
-    if (caption && dp.caption != null) caption.textContent = dp.caption;
-    if (urlBar && dp.urlBar != null) urlBar.textContent = dp.urlBar;
-    const dock = wrap.querySelector('[data-proof-carousel]');
-    if (dock) {
-      if (dp.videoUrlBar != null) dock.dataset.videoUrlBar = String(dp.videoUrlBar);
-      if (dp.urlBar != null) dock.dataset.pdfUrlBar = String(dp.urlBar);
-      const tab0 = dock.querySelector('[data-carousel-tab="0"]');
-      const tab1 = dock.querySelector('[data-carousel-tab="1"]');
-      if (tab0 && dp.tabVideo != null) tab0.textContent = dp.tabVideo;
-      if (tab1 && dp.tabPdf != null) tab1.textContent = dp.tabPdf;
-      const vid = wrap.querySelector('.feat-proof-slide--video video');
-      if (vid && dp.videoUrl != null && String(dp.videoUrl).trim() !== '') {
-        vid.src = String(dp.videoUrl);
-      }
-      if (dp.pdfPhaseMs != null) {
-        const n = parseInt(String(dp.pdfPhaseMs), 10);
-        if (!isNaN(n) && n >= 2000) dock.dataset.pdfPhaseMs = String(n);
-      }
+    const barText =
+      dp.videoUrlBar != null && String(dp.videoUrlBar).trim() !== ''
+        ? String(dp.videoUrlBar)
+        : dp.urlBar != null
+          ? String(dp.urlBar)
+          : '';
+    if (urlBar && barText) urlBar.textContent = barText;
+    const vid = wrap.querySelector('.feat-proof-video');
+    if (vid) {
+      vid.src = String(dp.videoUrl);
+      if (dp.videoTitle != null) vid.setAttribute('title', String(dp.videoTitle));
     }
   }
 

@@ -249,20 +249,16 @@
     "caseStudyUrl": "pages/case-study-40l-to-131cr.html",
     "caseStudyLinkLabel": "Read full case study",
     "dashboardProof": {
-      "pdfUrl": "assets/media/documents/proof-shopify-dashboard.pdf",
-      "pdfEmbedHash": "toolbar=0&navpanes=0&view=FitW",
       "videoUrl": "assets/media/video/video.mp4",
       "videoUrlBar": "proof · walkthrough.mp4",
-      "tabVideo": "Video",
-      "tabPdf": "Dashboard PDF",
-      "pdfPhaseMs": 10000,
-      "eyebrow": "Verification",
-      "title": "Shopify analytics — dashboard capture",
-      "urlBar": "admin.shopify.com/store/···/analytics",
-      "caption": "Gulmohar Jaipur · Full-length scrolling export — raw numbers behind the ₹1.31Cr peak narrative.",
-      "openLabel": "Open full PDF",
+      "eyebrow": "Behind the numbers",
+      "title": "Shopify analytics — walkthrough",
+      "urlBar": "proof · walkthrough.mp4",
       "dataSpreadsheetUrl": "pages/excel_data.html",
-      "dataSpreadsheetLabel": "Strategy Break Down"
+      "dataSpreadsheetLabel": "Strategy breakdown",
+      "dataSpreadsheetHint": "Interactive funnel model · opens in new tab",
+      "dataSpreadsheetTag": "Playbook",
+      "dataSpreadsheetCtaLabel": "Explore"
     },
     "blocks": [
       {
